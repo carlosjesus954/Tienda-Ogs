@@ -1,0 +1,27 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+
+.Header{
+background-color: v.$colorPrincipal;
+    &-global{
+        @include m.flex(row nowrap, space-between , center ,0rem );
+
+        padding: 1rem;
+    }
+    &-container{
+        @include m.flex(row nowrap, space-between , center ,1.3rem );
+        
+    }
+    &-menu{
+        width: 1.5rem;
+        cursor: pointer;
+    }
+    &-logo{
+        width: 2.5rem;
+    }
+    &-icons{
+        width: 1.5rem;
+        cursor: pointer;
+    }
+}

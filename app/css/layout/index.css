@@ -1,0 +1,31 @@
+.Header {
+  background-color: #FFCC03;
+}
+.Header-global {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0rem;
+  padding: 1rem;
+}
+.Header-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.3rem;
+}
+.Header-menu {
+  width: 1.5rem;
+  cursor: pointer;
+}
+.Header-logo {
+  width: 2.5rem;
+}
+.Header-icons {
+  width: 1.5rem;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=index.css.map */
