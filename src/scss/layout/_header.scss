@@ -1,27 +1,82 @@
 @use "../base/variables" as v;
 @use "../base/mixins" as m;
 
+.Header {
+  position: fixed;
+  background-color: v.$colorPrincipal;
+  width: 100%;
+  &-global {
+    @include m.flex(row nowrap, space-between, center, 0rem);
 
-.Header{
-background-color: v.$colorPrincipal;
-    &-global{
-        @include m.flex(row nowrap, space-between , center ,0rem );
-
-        padding: 1rem;
+    padding: 1rem;
+  }
+  &-container {
+    @include m.flex(row nowrap, space-between, center, 1.3rem);
+    position: relative;
+  }
+  &-menu {
+    width: 1.5rem;
+    cursor: pointer;
+    
+  }
+  &-logo {
+    width: 2.5rem;
+    z-index: 1;
+  }
+  &-icons {
+    width: 1.5rem;
+    cursor: pointer;
+  }
+  
+}
+.Nav{
+    background-color: rgba(255, 255, 255, 0.589);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    
+    &-ul{
+        padding-left: 0;
+        width: 30%;
+        height: 100vh;
+        padding-top: 4.3rem;
+        background-color: v.$colorPrincipal;
     }
     &-container{
-        @include m.flex(row nowrap, space-between , center ,1.3rem );
+        padding: 1rem;
+        @include m.flex(column nowrap, start, start, 1.3rem);
+
+    }
+    &-sup{
+        background-color: blue;
+        font-weight: bolder;
+        font-size: 1.3rem;
+    }
+    &-mid{
+        background-color: green;
+        color: v.$colorLetra2;
+        margin-bottom: 2rem;
+    }
+    &-separate{
+        @include m.flex(column wrap, space-between, start, 1.5rem);
+        width: 100%;
+        height: auto;
+    }
+    &-mid2{
+        background-color: greenyellow;
+        font-weight: bolder;
+        font-size: 1.3rem;
+        @include m.flex(column nowrap, start, start, 1.5rem);
+
+    }
+    &-bottom{
+        background-color: purple;
+
         
     }
-    &-menu{
-        width: 1.5rem;
-        cursor: pointer;
-    }
-    &-logo{
-        width: 2.5rem;
-    }
-    &-icons{
-        width: 1.5rem;
-        cursor: pointer;
+    &-enlace{
+        color: v.$colorLetra;
     }
 }

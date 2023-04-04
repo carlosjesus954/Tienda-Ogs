@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 export const NavBar = () => {
+  const { navSup, navMid, navMid2, navBottom } = useContext(AuthContext);
   return (
     <header className="Header">
       <div className="Header-global">
@@ -17,14 +19,52 @@ export const NavBar = () => {
               d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
             />
           </svg>
-          <NavLink to="/">
+          <NavLink to="/" className="Header-logo">
             <img
               src="/src/assets/logo-black.png"
               alt="Logo Og's"
-              className="Header-logo"
+              
             />
           </NavLink>
         </div>
+        <nav className="Header-nav Nav">
+          <ul className="Nav-ul">
+            <div className="Nav-sup Nav-container">
+              {navSup.map((ele) => (
+                <NavLink key={ele.id} to={ele.to} className="Nav-enlace">
+                  {" "}
+                  {ele.title}{" "}
+                </NavLink>
+              ))}
+            </div>
+            <div className="Nav-mid Nav-container">
+              {navMid.map((ele) => (
+                <NavLink key={ele.id} to={ele.to} className="Nav-enlace">
+                  {" "}
+                  {ele.title}{" "}
+                </NavLink>
+              ))}
+            </div>
+            <div className="Nav-separate">
+              <div className="Nav-mid2 Nav-container">
+                {navMid2.map((ele) => (
+                  <NavLink key={ele.id} to={ele.to} className="Nav-enlace">
+                    {" "}
+                    {ele.title}{" "}
+                  </NavLink>
+                ))}
+              </div>
+              <div className="Nav-bottom Nav-container">
+                {navBottom.map((ele) => (
+                  <NavLink key={ele.id} to={ele.to} className="Nav-enlace">
+                    {" "}
+                    {ele.title}{" "}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+          </ul>
+        </nav>
         <div className="Header-container">
           <NavLink to="contact">
             <svg
