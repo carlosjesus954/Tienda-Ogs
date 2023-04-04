@@ -1,7 +1,7 @@
 
 export const Main = () => {
   return (
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit ab inventore praesentium enim qui adipisci possimus omnis sapiente molestiae minima, iure consequuntur odio, vel hic nihil fugiat nisi dicta tempora!
+    <main className="Main">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit ab inventore praesentium enim qui adipisci possimus omnis sapiente molestiae minima, iure consequuntur odio, vel hic nihil fugiat nisi dicta tempora!
     Facere nihil quis atque minima porro ut quidem illum qui blanditiis eius eos officia architecto voluptatum non fugiat, rem consectetur laboriosam. Vel, dignissimos possimus nobis dolorum quo totam non. Distinctio?
     Nihil hic, maxime quaerat quasi suscipit harum ipsum quibusdam facilis aliquid doloribus aperiam quam, placeat laudantium eveniet qui, molestiae cupiditate voluptatem dolore accusamus blanditiis error expedita. Adipisci dolore magni officia.
     Quam, ullam nesciunt. Eius pariatur nihil ipsa maiores rem? Dolores ad illo veritatis quasi maxime laboriosam facere doloremque optio quia earum, mollitia incidunt libero perspiciatis porro saepe, ab aperiam tempore?
@@ -50,6 +50,6 @@ export const Main = () => {
     Accusantium eveniet laboriosam quas placeat rerum, corrupti, numquam suscipit assumenda temporibus ratione excepturi delectus molestiae. Esse minus officia incidunt, ducimus nihil eum quae nam ex sequi ullam, deserunt est vitae?
     Rerum blanditiis dolor amet at! A sed facere harum obcaecati perferendis dicta beatae quibusdam, architecto aliquid temporibus rem? Eaque ullam earum fuga, odio provident incidunt ipsam fugit blanditiis repellendus tempore.
     Possimus sequi unde culpa tempore qui nobis magnam ratione beatae ab perferendis ex, laboriosam veniam consectetur, dicta voluptas, corrupti adipisci assumenda minima dolore! Totam amet dolor molestiae necessitatibus autem numquam?
-    Fugit saepe velit nihil amet natus iure, asperiores tempora fuga commodi eum sed ipsum quibusdam autem, odio eius aut consequuntur delectus facilis vel sit illum dicta! Necessitatibus consectetur dicta corporis.</div>
+    Fugit saepe velit nihil amet natus iure, asperiores tempora fuga commodi eum sed ipsum quibusdam autem, odio eius aut consequuntur delectus facilis vel sit illum dicta! Necessitatibus consectetur dicta corporis.</main>
   )
 }

@@ -1,9 +1,14 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { useState } from "react";
 
 export const NavBar = () => {
   const { navSup, navMid, navMid2, navBottom } = useContext(AuthContext);
+  const [menuAbierto, setMenuAbierto] = useState(false);
+  const onToggleMenu = () => {
+    setMenuAbierto(!menuAbierto);
+  };
   return (
     <header className="Header">
       <div className="Header-global">
@@ -11,59 +16,75 @@ export const NavBar = () => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
-            className="Header-menu"
+            className={`Header-menu ${menuAbierto ? "HeaderMenu--hidden" : ""}`}
             viewBox="0 0 16 16"
+            onClick={onToggleMenu}
           >
             <path
               fillRule="evenodd"
               d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
             />
           </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            className={`Header-close ${
+              menuAbierto ? "" : "HeaderMenu--hidden "
+            }`}
+            viewBox="0 0 16 16"
+            onClick={onToggleMenu}
+          >
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+          </svg>
           <NavLink to="/" className="Header-logo">
-            <img
-              src="/src/assets/logo-black.png"
-              alt="Logo Og's"
-              
-            />
+            <img src="/src/assets/logo-black.png" alt="Logo Og's" />
           </NavLink>
         </div>
-        <nav className="Header-nav Nav">
-          <ul className="Nav-ul">
-            <div className="Nav-sup Nav-container">
+        <nav className={`Header-nav Nav ${menuAbierto ? "Nav--show" : ""}`}>
+          <div className="Nav-global">
+            <div className="Nav-container">
               {navSup.map((ele) => (
-                <NavLink key={ele.id} to={ele.to} className="Nav-enlace">
+                <NavLink
+                  key={ele.id}
+                  to={ele.to}
+                  className="Nav-enlace NavEnlace--grande"
+                >
                   {" "}
                   {ele.title}{" "}
                 </NavLink>
               ))}
-            </div>
-            <div className="Nav-mid Nav-container">
               {navMid.map((ele) => (
+                <NavLink
+                  key={ele.id}
+                  to={ele.to}
+                  className="Nav-enlace NavEnlace--gris"
+                >
+                  {" "}
+                  {ele.title}{" "}
+                </NavLink>
+              ))}
+              <div className="Nav-subcontainer">
+                {navMid2.map((ele) => (
+                  <NavLink
+                    key={ele.id}
+                    to={ele.to}
+                    className="Nav-enlace NavEnlace--grande"
+                  >
+                    {" "}
+                    {ele.title}{" "}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+            <div className="Nav-container">
+              {navBottom.map((ele) => (
                 <NavLink key={ele.id} to={ele.to} className="Nav-enlace">
                   {" "}
                   {ele.title}{" "}
                 </NavLink>
               ))}
             </div>
-            <div className="Nav-separate">
-              <div className="Nav-mid2 Nav-container">
-                {navMid2.map((ele) => (
-                  <NavLink key={ele.id} to={ele.to} className="Nav-enlace">
-                    {" "}
-                    {ele.title}{" "}
-                  </NavLink>
-                ))}
-              </div>
-              <div className="Nav-bottom Nav-container">
-                {navBottom.map((ele) => (
-                  <NavLink key={ele.id} to={ele.to} className="Nav-enlace">
-                    {" "}
-                    {ele.title}{" "}
-                  </NavLink>
-                ))}
-              </div>
-            </div>
-          </ul>
+          </div>
         </nav>
         <div className="Header-container">
           <NavLink to="contact">

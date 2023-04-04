@@ -1,4 +1,5 @@
 .Header {
+  top: 0;
   position: fixed;
   background-color: #FFCC03;
   width: 100%;
@@ -23,6 +24,11 @@
   width: 1.5rem;
   cursor: pointer;
 }
+.Header-close {
+  width: 1.5rem;
+  z-index: 1;
+  cursor: pointer;
+}
 .Header-logo {
   width: 2.5rem;
   z-index: 1;
@@ -36,59 +42,64 @@
   background-color: rgba(255, 255, 255, 0.589);
   position: fixed;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
   height: 100vh;
+  transition: 0.6s;
 }
-.Nav-ul {
+.Nav-global {
   padding-left: 0;
-  width: 30%;
+  width: 40%;
   height: 100vh;
   padding-top: 4.3rem;
+  padding-bottom: 2rem;
   background-color: #FFCC03;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.Nav-subcontainer {
+  margin-top: 2rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: start;
+  align-items: start;
+  gap: 1.4rem;
+  font-size: 1.3rem;
 }
 .Nav-container {
   padding: 1rem;
+  font-weight: bolder;
   display: flex;
   flex-flow: column nowrap;
   justify-content: start;
   align-items: start;
-  gap: 1.3rem;
-}
-.Nav-sup {
-  background-color: blue;
-  font-weight: bolder;
-  font-size: 1.3rem;
-}
-.Nav-mid {
-  background-color: green;
-  color: rgb(97, 97, 97);
-  margin-bottom: 2rem;
-}
-.Nav-separate {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-between;
-  align-items: start;
-  gap: 1.5rem;
-  width: 100%;
-  height: auto;
-}
-.Nav-mid2 {
-  background-color: greenyellow;
-  font-weight: bolder;
-  font-size: 1.3rem;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: start;
-  align-items: start;
-  gap: 1.5rem;
-}
-.Nav-bottom {
-  background-color: purple;
+  gap: 1.2rem;
 }
 .Nav-enlace {
+  font-size: 0.9rem;
   color: rgb(32, 32, 32);
+}
+
+.Nav--show {
+  left: 0;
+}
+
+.HeaderMenu--hidden {
+  display: none;
+}
+
+.NavEnlace--grande {
+  font-size: 1.4rem;
+}
+
+.NavEnlace--gris {
+  font-weight: lighter;
+  color: rgb(32, 32, 32);
+}
+
+.Main {
+  margin-top: 6rem;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -2,12 +2,13 @@
 @use "../base/mixins" as m;
 
 .Header {
+  top: 0;
   position: fixed;
   background-color: v.$colorPrincipal;
   width: 100%;
+
   &-global {
     @include m.flex(row nowrap, space-between, center, 0rem);
-
     padding: 1rem;
   }
   &-container {
@@ -17,7 +18,11 @@
   &-menu {
     width: 1.5rem;
     cursor: pointer;
-    
+  }
+  &-close {
+    width: 1.5rem;
+    z-index: 1;
+    cursor: pointer;
   }
   &-logo {
     width: 2.5rem;
@@ -27,56 +32,51 @@
     width: 1.5rem;
     cursor: pointer;
   }
-  
 }
-.Nav{
-    background-color: rgba(255, 255, 255, 0.589);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+.Nav {
+  background-color: rgba(255, 255, 255, 0.589);
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  transition: 0.6s;
+  &-global {
+    padding-left: 0;
+    width: 40%;
     height: 100vh;
-    
-    &-ul{
-        padding-left: 0;
-        width: 30%;
-        height: 100vh;
-        padding-top: 4.3rem;
-        background-color: v.$colorPrincipal;
-    }
-    &-container{
-        padding: 1rem;
-        @include m.flex(column nowrap, start, start, 1.3rem);
-
-    }
-    &-sup{
-        background-color: blue;
-        font-weight: bolder;
-        font-size: 1.3rem;
-    }
-    &-mid{
-        background-color: green;
-        color: v.$colorLetra2;
-        margin-bottom: 2rem;
-    }
-    &-separate{
-        @include m.flex(column wrap, space-between, start, 1.5rem);
-        width: 100%;
-        height: auto;
-    }
-    &-mid2{
-        background-color: greenyellow;
-        font-weight: bolder;
-        font-size: 1.3rem;
-        @include m.flex(column nowrap, start, start, 1.5rem);
-
-    }
-    &-bottom{
-        background-color: purple;
-
-        
-    }
-    &-enlace{
-        color: v.$colorLetra;
-    }
+    padding-top: 4.3rem;
+    padding-bottom: 2rem;
+    background-color: v.$colorPrincipal;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &-subcontainer {
+    margin-top: 2rem;
+    @include m.flex(column nowrap, start, start, 1.4rem);
+    font-size: 1.3rem;
+  }
+  &-container {
+    padding: 1rem;
+    font-weight: bolder;
+    @include m.flex(column nowrap, start, start, 1.2rem);
+  }
+  &-enlace {
+    font-size: 0.9rem;
+    color: v.$colorLetra;
+  }
+}
+.Nav--show {
+  left: 0;
+}
+.HeaderMenu--hidden {
+  display: none;
+}
+.NavEnlace--grande {
+  font-size: 1.4rem;
+}
+.NavEnlace--gris {
+  font-weight: lighter;
+  color: v.$colorLetra;
 }
