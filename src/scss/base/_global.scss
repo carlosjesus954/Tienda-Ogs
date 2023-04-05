@@ -1,20 +1,25 @@
-@use 'variables' as v;
+@use "variables" as v;
 
 * {
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  img {
-    object-fit: cover;
-    max-width: 100%;
-  }
-  li {
-    list-style: none;
-  }
-  a {
-    text-decoration: none;
-  }
-  body{
-    margin: 0;
-  }
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  object-fit: cover;
+  max-width: 100%;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  margin: 0;
+}
+.Wrapper {
+  max-width: 110rem;
+  margin-left: auto;
+  margin-right: auto;
+}

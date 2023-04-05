@@ -4,19 +4,31 @@ import { AuthContext } from "../../context/AuthContext";
 import { useState } from "react";
 
 export const NavBar = () => {
-  const { navSup, navMid, navMid2, navBottom } = useContext(AuthContext);
+  const { navSup, navMid, navMid2 } = useContext(AuthContext);
   const [menuAbierto, setMenuAbierto] = useState(false);
+  const [moneda, setMoneda] = useState("EUR");
+  const [monedaAbierto, setMonedaAbierto] = useState(false);
   const onToggleMenu = () => {
     setMenuAbierto(!menuAbierto);
   };
+  const onToggleMoneda = () => {
+    setMonedaAbierto(!monedaAbierto);
+  };
+  const onToggleValor = (e) => {
+    console.log(e.target.value);
+    setMoneda(e.target.value);
+    onToggleMoneda();
+  };
   return (
     <header className="Header">
-      <div className="Header-global">
+      <div className="Header-global Wrapper">
         <div className="Header-container">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
-            className={`Header-menu ${menuAbierto ? "HeaderMenu--hidden" : ""}`}
+            className={`Header-menu ${
+              menuAbierto ? "Header-menu--hidden" : ""
+            }`}
             viewBox="0 0 16 16"
             onClick={onToggleMenu}
           >
@@ -29,7 +41,7 @@ export const NavBar = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
             className={`Header-close ${
-              menuAbierto ? "" : "HeaderMenu--hidden "
+              menuAbierto ? "" : "Header-menu--hidden "
             }`}
             viewBox="0 0 16 16"
             onClick={onToggleMenu}
@@ -47,7 +59,8 @@ export const NavBar = () => {
                 <NavLink
                   key={ele.id}
                   to={ele.to}
-                  className="Nav-enlace NavEnlace--grande"
+                  className="Nav-enlace Nav-enlace--grande"
+                  onClick={onToggleMenu}
                 >
                   {" "}
                   {ele.title}{" "}
@@ -57,7 +70,8 @@ export const NavBar = () => {
                 <NavLink
                   key={ele.id}
                   to={ele.to}
-                  className="Nav-enlace NavEnlace--gris"
+                  className="Nav-enlace Nav-enlace--gris"
+                  onClick={onToggleMenu}
                 >
                   {" "}
                   {ele.title}{" "}
@@ -68,7 +82,8 @@ export const NavBar = () => {
                   <NavLink
                     key={ele.id}
                     to={ele.to}
-                    className="Nav-enlace NavEnlace--grande"
+                    className="Nav-enlace Nav-enlace--grande"
+                    onClick={onToggleMenu}
                   >
                     {" "}
                     {ele.title}{" "}
@@ -77,12 +92,55 @@ export const NavBar = () => {
               </div>
             </div>
             <div className="Nav-container">
-              {navBottom.map((ele) => (
-                <NavLink key={ele.id} to={ele.to} className="Nav-enlace">
-                  {" "}
-                  {ele.title}{" "}
+              <div className="Nav-container--pago">
+                <span className="Nav-text">Divisa:</span>
+                <button className="Nav-monedas" onClick={onToggleMoneda}>
+                  <span>{moneda}</span>
+                </button>
+                <ul
+                  className={`Nav-listado ${
+                    monedaAbierto ? "Nav-listado--active" : ""
+                  }`}
+                >
+                  <button
+                    className="Nav-monedas"
+                    value="USD"
+                    onClick={onToggleValor}
+                  >
+                    USD
+                  </button>
+                  <button
+                    className="Nav-monedas"
+                    value="MXN"
+                    onClick={onToggleValor}
+                  >
+                    MXN
+                  </button>
+                  <button
+                    className="Nav-monedas"
+                    value="CLP"
+                    onClick={onToggleValor}
+                  >
+                    CLP
+                  </button>
+                  <button
+                    className="Nav-monedas"
+                    value="EUR"
+                    onClick={onToggleValor}
+                  >
+                    EUR
+                  </button>
+                </ul>
+              </div>
+              <div className="Nav-container--idiomas">
+                <NavLink className="Nav-span" to="/español">
+                  Español
                 </NavLink>
-              ))}
+                <div className="Nav-container--rotate"></div>
+                <NavLink className="Nav-span" to="/english">
+                  English
+                </NavLink>
+              </div>
             </div>
           </div>
         </nav>

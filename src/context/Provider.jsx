@@ -51,16 +51,10 @@ const navMid2 = [
     to: "registro",
   },
 ];
-const navBottom = [
-  {
-    id: 1,
-    title: "Divisa: EUR",
-    to: "",
-  },
-];
+
 export const Provider = ({ children }) => {
   return (
-    <AuthContext.Provider value={{ navSup, navMid, navMid2, navBottom }}>
+    <AuthContext.Provider value={{ navSup, navMid, navMid2 }}>
       {children}
     </AuthContext.Provider>
   );

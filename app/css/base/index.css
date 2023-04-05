@@ -329,4 +329,10 @@ body {
   margin: 0;
 }
 
+.Wrapper {
+  max-width: 110rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /*# sourceMappingURL=index.css.map */
