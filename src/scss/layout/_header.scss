@@ -6,7 +6,7 @@
   position: fixed;
   background-color: v.$colorPrincipal;
   width: 100%;
-
+  z-index: 1;
   &-global {
     @include m.flex(row nowrap, space-between, center, 0rem);
     padding: 1rem;

@@ -1,3 +1,90 @@
-.Main{
-    margin-top: 6rem;
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.Main {
+  margin-top: 5.5rem;
+  padding: 0 1rem 0 1rem;
+
+  &-global {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    @include m.desktopL {
+      gap: 1rem;
+    }
+  }
+  &-container--2modules {
+    @include m.tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+  &-container--3modules {
+    @include m.tablet {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+  }
+  &-cards {
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+  }
+  &-img {
+    margin-bottom: 1rem;
+    width: 40rem;
+    @include m.tablet {
+      height: 30rem;
+    }
+    @include m.tabletL {
+      height: 40rem;
+    }
+  }
+  &-img--grande {
+    width: 70rem;
+  }
+  &-h2--grande {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: v.$colorLetra;
+    @include m.desktopL {
+      opacity: 0;
+      position: absolute;
+      top: 45%;
+      left: 35%;
+      background-color: rgba(255, 255, 255, 0.911);
+      padding: 3rem;
+      width: 13rem;
+      height: auto;
+    }
+    @include m.desktop-L {
+      left: 37%;
+    }
+  }
+  &-h2 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: v.$colorLetra;
+    @include m.desktopL {
+      position: absolute;
+      top: 40%;
+      left: 28%;
+      background-color: rgba(255, 255, 255, 0.911);
+      padding: 3rem;
+      width: 13rem;
+      height: auto;
+    }
+    @include m.desktop-L {
+      left: 31%;
+    }
+  }
+  &-h2--mostrar {
+    opacity: 1;
+    transition: 0.5s;
+  }
+  &-h2--hidden {
+    opacity: 0;
+    transition: 0.5s;
+  }
 }
