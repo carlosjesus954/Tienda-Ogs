@@ -128,7 +128,7 @@
   margin-right: 0.2rem;
 }
 .Nav-span {
-  color: rgb(73, 73, 73);
+  color: rgb(114, 114, 114);
   cursor: pointer;
 }
 .Nav-monedas {
@@ -290,9 +290,57 @@
   opacity: 1;
   transition: 0.5s;
 }
-.Main-h2--hidden {
-  opacity: 0;
-  transition: 0.5s;
+@media screen and (min-width: 1400px) {
+  .Main-h2--hidden {
+    opacity: 0;
+    transition: 0.5s;
+  }
+}
+
+.Footer {
+  margin-top: 2rem;
+}
+.Footer-global {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  text-align: center;
+  padding: 1rem;
+}
+@media screen and (min-width: 1000px) {
+  .Footer-global {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+.Footer-copy {
+  font-size: 0.8rem;
+  color: rgb(114, 114, 114);
+}
+.Footer-container {
+  margin-bottom: 1.5rem;
+}
+@media screen and (min-width: 1000px) {
+  .Footer-container {
+    margin-bottom: 0;
+  }
+}
+.Footer-ul {
+  padding: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.4rem;
+}
+@media screen and (min-width: 1000px) {
+  .Footer-ul {
+    flex-flow: row wrap;
+  }
+}
+.Footer-enlace {
+  font-size: 0.9rem;
+  color: rgb(114, 114, 114);
+  text-transform: uppercase;
 }
 
 /*# sourceMappingURL=index.css.map */

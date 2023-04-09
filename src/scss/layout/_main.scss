@@ -84,7 +84,9 @@
     transition: 0.5s;
   }
   &-h2--hidden {
-    opacity: 0;
-    transition: 0.5s;
+    @include m.desktopL {
+      opacity: 0;
+      transition: 0.5s;
+    }
   }
 }

@@ -1,0 +1,44 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.Footer {
+  margin-top: 2rem;
+  &-global {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+    padding: 1rem;
+    @include m.tabletL {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+  }
+  &-copy {
+    font-size: 0.8rem;
+    color: v.$colorLetra2;
+  }
+  &-container {
+    margin-bottom: 1.5rem;
+    @include m.tabletL {
+      margin-bottom: 0;
+    }
+  }
+  &-ul {
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1.4rem;
+
+    @include m.tabletL {
+      flex-flow: row wrap;
+    }
+  }
+
+  &-enlace {
+    font-size: 0.9rem;
+    color: v.$colorLetra2;
+    text-transform: uppercase;
+  }
+}
