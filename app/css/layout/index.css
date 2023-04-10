@@ -25,18 +25,38 @@
   width: 1.5rem;
   cursor: pointer;
 }
+@media screen and (min-width: 742px) {
+  .Header-menu {
+    width: 2rem;
+  }
+}
 .Header-close {
   width: 1.5rem;
   z-index: 1;
   cursor: pointer;
 }
+@media screen and (min-width: 742px) {
+  .Header-close {
+    width: 2rem;
+  }
+}
 .Header-logo {
   width: 2.5rem;
   z-index: 1;
 }
+@media screen and (min-width: 742px) {
+  .Header-logo {
+    width: 3.5rem;
+  }
+}
 .Header-icons {
   width: 1.5rem;
   cursor: pointer;
+}
+@media screen and (min-width: 742px) {
+  .Header-icons {
+    width: 2rem;
+  }
 }
 .Header-menu--hidden {
   display: none;
@@ -341,6 +361,61 @@
   font-size: 0.9rem;
   color: rgb(114, 114, 114);
   text-transform: uppercase;
+}
+
+.Catalogo-h2 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 742px) {
+  .Catalogo-h2 {
+    font-size: 1.8rem;
+  }
+}
+.Catalogo-global {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 742px) {
+  .Catalogo-global {
+    justify-content: center;
+    flex-flow: row wrap;
+    gap: 2rem;
+  }
+}
+@media screen and (min-width: 1665px) {
+  .Catalogo-global {
+    justify-content: space-between;
+  }
+}
+.Catalogo-cards {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 742px) {
+  .Catalogo-cards {
+    margin-bottom: 0rem;
+  }
+}
+.Catalogo-text {
+  text-align: center;
+}
+.Catalogo-h3 {
+  margin-bottom: 1rem;
+  color: rgb(32, 32, 32);
+}
+.Catalogo-precio {
+  letter-spacing: 0.03rem;
+  color: rgb(32, 32, 32);
 }
 
 /*# sourceMappingURL=index.css.map */

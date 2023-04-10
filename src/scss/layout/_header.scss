@@ -18,19 +18,32 @@
   &-menu {
     width: 1.5rem;
     cursor: pointer;
+    @include m.tablet {
+      width: 2rem;
+    }
   }
   &-close {
     width: 1.5rem;
     z-index: 1;
     cursor: pointer;
+    @include m.tablet {
+      width: 2rem;
+    }
   }
   &-logo {
     width: 2.5rem;
     z-index: 1;
+    // fill: v.$colorLetra;
+    @include m.tablet {
+      width: 3.5rem;
+    }
   }
   &-icons {
     width: 1.5rem;
     cursor: pointer;
+    @include m.tablet {
+      width: 2rem;
+    }
   }
   &-menu--hidden {
     display: none;
