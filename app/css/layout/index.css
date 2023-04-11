@@ -215,7 +215,7 @@
 }
 
 .Main {
-  margin-top: 5.5rem;
+  margin-top: 6.5rem;
   padding: 0 1rem 0 1rem;
 }
 .Main-global {
@@ -364,7 +364,7 @@
 }
 
 .Catalogo-h2 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   text-transform: uppercase;
   font-weight: 900;
   text-align: center;
@@ -383,8 +383,15 @@
 }
 @media screen and (min-width: 742px) {
   .Catalogo-global {
-    justify-content: center;
-    flex-flow: row wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+@media screen and (min-width: 1250px) {
+  .Catalogo-global {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
 }
@@ -410,7 +417,7 @@
   text-align: center;
 }
 .Catalogo-h3 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   color: rgb(32, 32, 32);
 }
 .Catalogo-precio {

@@ -1,18 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { NavLink } from "react-router-dom";
+import { useHoverId } from "../hooks/useHoverId";
 export const Main = () => {
   const { mainConjuntos, mainConjuntos2 } = useContext(AuthContext);
-  const [hoveredConjuntoId, setHoveredConjuntoId] = useState(null);
-
-  const onToggleShowh2 = (conjuntoId) => {
-    setHoveredConjuntoId(conjuntoId);
-  };
-
-  const onToggleHiddenh2 = () => {
-    setHoveredConjuntoId(null);
-  };
-
+  const { hoveredConjuntoId, onToggleShowh2, onToggleHiddenh2 } = useHoverId();
   return (
     <main className="Main Wrapper">
       <div className="Main-global">
