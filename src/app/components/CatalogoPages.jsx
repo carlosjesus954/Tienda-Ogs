@@ -1,12 +1,16 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { Link } from "react-router-dom";
 import { useHoverId } from "../hooks/useHoverId";
 
 export const CatalogoPages = ({ title, catalogType }) => {
   const { hoveredConjuntoId, onToggleShowh2, onToggleHiddenh2 } = useHoverId();
   const { tiger, cream, beerAndChurros, ogs, accesorios } =
     useContext(AuthContext);
+
+  const [selectedCloths, setSelectedCloths] = useState({});
+  const navigate = useNavigate();
 
   let caseValue;
   switch (catalogType) {
@@ -30,28 +34,65 @@ export const CatalogoPages = ({ title, catalogType }) => {
       break;
   }
 
+  const handleClothClick = (data) => {
+    setSelectedCloths(data);
+    navigate("/cloths", { state: { clothData: data } });
+  };
+
   return (
     <main className="Main Wrapper">
       <section className="Main-catalogo Catalogo">
         <h2 className="Catalogo-h2">{title}</h2>
         <div className="Catalogo-global">
           {caseValue.map((element) => {
+            const {
+              src1,
+              src2,
+              src3,
+              src4,
+              title,
+              precio,
+              id,
+              alt,
+              text,
+              text2,
+              element1,
+              element2,
+              element3,
+              element4,
+            } = element;
             const srcImg =
               hoveredConjuntoId === element.id ? element.src2 : element.src1;
             return (
-              <Link
+              <div
                 className="Catalogo-cards"
                 key={element.id}
-                to={element.to}
-                onMouseEnter={() => onToggleShowh2(element.id)}
+                onMouseEnter={() => onToggleShowh2(id)}
                 onMouseLeave={onToggleHiddenh2}
+                onClick={() =>
+                  handleClothClick({
+                    id,
+                    title,
+                    precio,
+                    src1,
+                    src2,
+                    src3,
+                    src4,
+                    text,
+                    text2,
+                    element1,
+                    element2,
+                    element3,
+                    element4,
+                  })
+                }
               >
-                <img src={srcImg} alt={element.alt} className="Catalogo-img " />
+                <img src={srcImg} alt={alt} className="Catalogo-img " />
                 <div className="Catalogo-text">
-                  <h3 className="Catalogo-h3">{element.title}</h3>
-                  <span className="Catalogo-precio">{element.precio}</span>
+                  <h3 className="Catalogo-h3">{title}</h3>
+                  <span className="Catalogo-precio">{precio}</span>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>
