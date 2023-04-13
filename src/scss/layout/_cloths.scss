@@ -3,16 +3,36 @@
 
 .Clothes {
   &-carrusel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 2rem;
+    overflow: hidden;
   }
   &-carrusel--btns {
+    position: absolute;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    top: 45%;
+    width: 100%;
   }
-  &-carrusel--btn {
+  &-container--carrusel {
+    display: flex;
+    position: relative;
+    left: 0%;
+    width: 400%;
+    transition: 0.5s;
+    z-index: -1;
   }
   &-carrusel--svg {
+    cursor: pointer;
+    width: 2rem;
   }
   &-carrusel--left {
   }
   &-carrusel--right {
+  }
+  &-carrusel-subcontainer {
   }
   &-img {
   }
@@ -42,4 +62,13 @@
   }
   &-img--similar {
   }
+}
+.Clothes-carrusel--move1 {
+  left: -100%;
+}
+.Clothes-carrusel--move2 {
+  left: -200%;
+}
+.Clothes-carrusel--move3 {
+  left: -300%;
 }

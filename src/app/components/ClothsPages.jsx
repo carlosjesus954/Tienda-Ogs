@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import { useCarrusel } from "../hooks/useCarrusel";
 
 export const ClothsPages = () => {
   const { state } = useLocation();
@@ -17,49 +18,47 @@ export const ClothsPages = () => {
     element3,
     element4,
   } = state.clothData;
-
-  console.log(text);
-
+  const images = [src1, src2, src3, src4];
+  const { handleCarruselBack, handleCarruselForward, estadoCarrusel } =
+    useCarrusel(images);
   return (
     <main className="Main Wrapper">
       <section className="Main-clothes Clothes">
         <div className="Clothes-carrusel">
           <div className="Clothes-carrusel--btns">
-            <button className="Clothes-carrusel--btn">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="Clothes-carrusel--svg Clothes-carrusel--left"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-                />
-              </svg>
-            </button>
-            <button className="Clothes-carrusel--btn">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="Clothes-carrusel--svg Clothes-carrusel--right"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                />
-              </svg>
-            </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              className="Clothes-carrusel--svg Clothes-carrusel--left"
+              viewBox="0 0 16 16"
+              onClick={handleCarruselBack}
+            >
+              <path
+                fillRule="evenodd"
+                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+              />
+            </svg>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              className="Clothes-carrusel--svg Clothes-carrusel--right"
+              viewBox="0 0 16 16"
+              onClick={handleCarruselForward}
+            >
+              <path
+                fillRule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+              />
+            </svg>
           </div>
-          <img src={src1} alt={title} className="Clothes-img" />
-          <img src={src2} alt={title} className="Clothes-img" />
-          <img src={src3} alt={title} className="Clothes-img" />
-          <img src={src4} alt={title} className="Clothes-img" />
+          <div className={`Clothes-container--carrusel ${estadoCarrusel}`}>
+            {images.map((img, index) => (
+              <div className="Clothes-carrusel-subcontainer" key={index}>
+                <img src={img} alt={title} className="Clothes-img" />
+              </div>
+            ))}
+          </div>
         </div>
         <div className="Clothes-info">
           <h2>{title}</h2>

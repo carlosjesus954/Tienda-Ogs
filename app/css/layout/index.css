@@ -425,4 +425,42 @@
   color: rgb(32, 32, 32);
 }
 
+.Clothes-carrusel {
+  position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+.Clothes-carrusel--btns {
+  position: absolute;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  top: 45%;
+  width: 100%;
+}
+.Clothes-container--carrusel {
+  display: flex;
+  position: relative;
+  left: 0%;
+  width: 400%;
+  transition: 0.5s;
+  z-index: -1;
+}
+.Clothes-carrusel--svg {
+  cursor: pointer;
+  width: 2rem;
+}
+.Clothes-carrusel--move1 {
+  left: -100%;
+}
+
+.Clothes-carrusel--move2 {
+  left: -200%;
+}
+
+.Clothes-carrusel--move3 {
+  left: -300%;
+}
+
 /*# sourceMappingURL=index.css.map */
