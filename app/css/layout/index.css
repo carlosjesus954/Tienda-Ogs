@@ -430,6 +430,21 @@
   width: 100%;
   margin-bottom: 2rem;
   overflow: hidden;
+  max-width: 48.75rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Clothes-global {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media screen and (min-width: 1250px) {
+  .Clothes-global {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 .Clothes-carrusel--btns {
   position: absolute;
@@ -451,6 +466,132 @@
   cursor: pointer;
   width: 2rem;
 }
+@media screen and (min-width: 1250px) {
+  .Clothes-h2 {
+    font-size: 1.75rem;
+  }
+}
+.Clothes-info {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+@media screen and (min-width: 1250px) {
+  .Clothes-info {
+    align-items: start;
+    padding-left: 6rem;
+  }
+}
+.Clothes-img--small {
+  width: 6rem;
+}
+.Clothes-size {
+  padding-left: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.Clothes-btn--small {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border-style: none;
+  padding: 0.5rem;
+  width: 2.4rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+.Clothes-btn--small:hover {
+  border-bottom: 0.125rem solid #ffcc03;
+}
+.Clothes-btn--smallColor {
+  border-bottom: 0.125rem solid #ffcc03;
+}
+.Clothes-btn {
+  background-color: #ffcc03;
+  border-style: none;
+  padding: 1rem;
+  width: 100%;
+  max-width: 23.3rem;
+}
+.Clothes-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.Clothes-text {
+  font-weight: bolder;
+}
+@media screen and (min-width: 1250px) {
+  .Clothes-text {
+    font-size: 1.2rem;
+  }
+}
+.Clothes-details {
+  padding-left: 3rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+}
+.Clothes-li {
+  list-style: square;
+}
+@media screen and (min-width: 1250px) {
+  .Clothes-li {
+    font-size: 1.1rem;
+  }
+}
+.Clothes-similar {
+  text-align: center;
+}
+@media screen and (min-width: 1250px) {
+  .Clothes-similar {
+    text-align: start;
+  }
+}
+.Clothes-similar--subcontainer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+@media screen and (min-width: 1250px) {
+  .Clothes-similar--subcontainer {
+    justify-content: start;
+  }
+}
+.Clothes-h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 1250px) {
+  .Clothes-h3 {
+    font-size: 1.6rem;
+  }
+}
+.Clothes-img--similar {
+  width: 10rem;
+}
+@media screen and (min-width: 742px) {
+  .Clothes-img--similar {
+    width: 14rem;
+  }
+}
+@media screen and (min-width: 1250px) {
+  .Clothes-img--similar {
+    width: 18rem;
+  }
+}
+
 .Clothes-carrusel--move1 {
   left: -100%;
 }

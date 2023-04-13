@@ -7,6 +7,19 @@
     width: 100%;
     margin-bottom: 2rem;
     overflow: hidden;
+    max-width: 48.75rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &-global {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    @include m.desktop {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
   &-carrusel--btns {
     position: absolute;
@@ -36,31 +49,100 @@
   }
   &-img {
   }
+  &-h2 {
+    @include m.desktop {
+      font-size: 1.75rem;
+    }
+  }
   &-info {
+    @include m.flex(column nowrap, center, center, 2rem);
+    @include m.desktop {
+      align-items: start;
+      padding-left: 6rem;
+    }
   }
   &-carrusel--small {
   }
   &-img--small {
+    width: 6rem;
   }
   &-size {
+    padding-left: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
   }
   &-btn--small {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    border-style: none;
+    padding: 0.5rem;
+    width: 2.4rem;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  &-btn--small:hover {
+    border-bottom: 0.125rem solid v.$colorPrincipal;
+  }
+  &-btn--smallColor {
+    border-bottom: 0.125rem solid v.$colorPrincipal;
   }
   &-btn {
+    background-color: v.$colorPrincipal;
+    border-style: none;
+    padding: 1rem;
+    width: 100%;
+    max-width: 23.3rem;
   }
   &-container {
+    @include m.flex(column nowrap, center, start, 1rem);
+    margin-bottom: 2rem;
   }
   &-text {
+    font-weight: bolder;
+    @include m.desktop {
+      font-size: 1.2rem;
+    }
   }
   &-details {
+    padding-left: 3rem;
+    @include m.flex(column nowrap, center, start, 1rem);
   }
   &-li {
+    list-style: square;
+    @include m.desktop {
+      font-size: 1.1rem;
+    }
   }
   &-similar {
+    text-align: center;
+    @include m.desktop {
+      text-align: start;
+    }
+  }
+  &-similar--subcontainer {
+    @include m.flex(row nowrap, center, center, 1rem);
+    @include m.desktop {
+      justify-content: start;
+    }
   }
   &-h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    @include m.desktop {
+      font-size: 1.6rem;
+    }
   }
   &-img--similar {
+    width: 10rem;
+    @include m.tablet {
+      width: 14rem;
+    }
+    @include m.desktop {
+      width: 18rem;
+    }
   }
 }
 .Clothes-carrusel--move1 {
