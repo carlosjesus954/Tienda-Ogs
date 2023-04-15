@@ -22,10 +22,15 @@ export const RoutesPages = () => {
         <Route path="shop" element={<ShopPage />} />
 
         <Route path="tiger" element={<TigerPage />} />
+        <Route path="/cloths/tiger" element={<TigerPage />} />
         <Route path="cream" element={<CreamPage />} />
+        <Route path="/cloths/cream" element={<CreamPage />} />
         <Route path="beer&churros" element={<BeerAndChurros />} />
+        <Route path="/cloths/beer&churros" element={<BeerAndChurros />} />
         <Route path="ogs" element={<OgsPage />} />
+        <Route path="/cloths/ogs" element={<OgsPage />} />
         <Route path="accesorios" element={<AccesoryPage />} />
+        <Route path="/cloths/accesorios" element={<AccesoryPage />} />
 
         <Route path="cloths" element={<ClothsPages />} />
       </Routes>

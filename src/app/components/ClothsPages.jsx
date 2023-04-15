@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useCarrusel } from "../hooks/useCarrusel";
 import { useState } from "react";
 
@@ -26,8 +26,16 @@ export const ClothsPages = () => {
     element2,
     element3,
     element4,
+    comprasimilar1,
+    comprasimilar2,
+    altsimilar1,
+    altsimilar2,
+    complementocolor1,
+    complementocolor2,
+    to1,
+    to2,
   } = state.clothData;
-  const images = [src2, src3, src4, src1];
+  const images = [src1, src2, src3, src4];
   const { handleCarruselBack, handleCarruselForward, estadoCarrusel } =
     useCarrusel(images);
 
@@ -41,7 +49,7 @@ export const ClothsPages = () => {
     setSizeActive(newActive);
   };
 
-  console.log(sizeClothes);
+  console.log(to1);
   return (
     <main className="Main Wrapper">
       <section className="Main-clothes Clothes">
@@ -86,8 +94,16 @@ export const ClothsPages = () => {
             <h2 className="Clothes-h2">{title}</h2>
             <span>{precio}</span>
             <div className="Clothes-carrusel--small">
-              <img src={src2} alt={title} className="Clothes-img--small" />
-              <img src={src4} alt={title} className="Clothes-img--small" />
+              <img
+                src={complementocolor1}
+                alt={title}
+                className="Clothes-img--small"
+              />
+              <img
+                src={complementocolor2}
+                alt={title}
+                className="Clothes-img--small"
+              />
             </div>
             <ul className="Clothes-size">
               <button
@@ -152,8 +168,20 @@ export const ClothsPages = () => {
         <div className="Clothes-similar">
           <h3 className="Clothes-h3">Compra similar</h3>
           <div className="Clothes-similar--subcontainer">
-            <img src={src1} alt={src1} className="Clothes-img--similar" />
-            <img src={src2} alt={src2} className="Clothes-img--similar" />
+            <NavLink to={to1}>
+              <img
+                src={comprasimilar1}
+                alt={altsimilar1}
+                className="Clothes-img--similar"
+              />
+            </NavLink>
+            <NavLink to={to2}>
+              <img
+                src={comprasimilar2}
+                alt={altsimilar2}
+                className="Clothes-img--similar"
+              />
+            </NavLink>
           </div>
         </div>
       </section>

@@ -60,6 +60,14 @@ export const CatalogoPages = ({ title, catalogType }) => {
               element2,
               element3,
               element4,
+              comprasimilar1,
+              comprasimilar2,
+              altsimilar1,
+              altsimilar2,
+              complementocolor1,
+              complementocolor2,
+              to1,
+              to2,
             } = element;
             const srcImg =
               hoveredConjuntoId === element.id ? element.src2 : element.src1;
@@ -84,6 +92,14 @@ export const CatalogoPages = ({ title, catalogType }) => {
                     element2,
                     element3,
                     element4,
+                    comprasimilar1,
+                    comprasimilar2,
+                    altsimilar1,
+                    altsimilar2,
+                    complementocolor1,
+                    complementocolor2,
+                    to1,
+                    to2,
                   })
                 }
               >
