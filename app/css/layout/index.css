@@ -465,6 +465,13 @@
 .Clothes-carrusel--svg {
   cursor: pointer;
   width: 2rem;
+  fill: #ffcc03;
+}
+.Clothes-img {
+  width: 49rem;
+}
+.Clothes-img--mod {
+  width: 49rem;
 }
 @media screen and (min-width: 1250px) {
   .Clothes-h2 {
@@ -483,6 +490,10 @@
     align-items: start;
     padding-left: 6rem;
   }
+}
+.Clothes-carrusel--small {
+  display: flex;
+  gap: 1rem;
 }
 .Clothes-img--small {
   width: 6rem;

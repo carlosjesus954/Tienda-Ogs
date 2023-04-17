@@ -40,14 +40,13 @@
   &-carrusel--svg {
     cursor: pointer;
     width: 2rem;
-  }
-  &-carrusel--left {
-  }
-  &-carrusel--right {
-  }
-  &-carrusel-subcontainer {
+    fill: v.$colorPrincipal;
   }
   &-img {
+    width: 49rem;
+  }
+  &-img--mod {
+    width: 49rem;
   }
   &-h2 {
     @include m.desktop {
@@ -62,6 +61,8 @@
     }
   }
   &-carrusel--small {
+    display: flex;
+    gap: 1rem;
   }
   &-img--small {
     width: 6rem;

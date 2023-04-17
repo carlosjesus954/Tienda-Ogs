@@ -48,7 +48,49 @@ export const ClothsPages = () => {
     setSizeClothes(newSize);
     setSizeActive(newActive);
   };
-
+  function renderComplementImages() {
+    if (complementocolor1 && complementocolor2) {
+      return (
+        <div className="Clothes-carrusel--small">
+          <img
+            src={complementocolor1}
+            alt={title}
+            className="Clothes-img--small"
+          />
+          <img
+            src={complementocolor2}
+            alt={title}
+            className="Clothes-img--small"
+          />
+        </div>
+      );
+    }
+  }
+  function renderSrcImages() {
+    if (src1 && src2 && src3 && src4) {
+      return (
+        <div className={`Clothes-container--carrusel ${estadoCarrusel}`}>
+          {images.map((img, index) => (
+            <div className="Clothes-carrusel-subcontainer" key={index}>
+              <img src={img} alt={title} className="Clothes-img" />
+            </div>
+          ))}
+        </div>
+      );
+    } else {
+      return (
+        <h1>Falta Content</h1>
+        // <div className={`Clothes-container--carruselsmall ${estadoCarrusel}`}>
+        //   <div className="Clothes-carrusel-subcontainer">
+        //     <img src={src1} alt={title} className="Clothes-img--mod" />
+        //   </div>
+        //   <div className="Clothes-carrusel-subcontainer">
+        //     <img src={src2} alt={title} className="Clothes-img--mod" />
+        //   </div>
+        // </div>
+      );
+    }
+  }
   console.log(to1);
   return (
     <main className="Main Wrapper">
@@ -58,7 +100,7 @@ export const ClothsPages = () => {
             <div className="Clothes-carrusel--btns">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
+                // fill="currentColor"
                 className="Clothes-carrusel--svg Clothes-carrusel--left"
                 viewBox="0 0 16 16"
                 onClick={handleCarruselBack}
@@ -71,7 +113,7 @@ export const ClothsPages = () => {
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
+                // fill="currentColor"
                 className="Clothes-carrusel--svg Clothes-carrusel--right"
                 viewBox="0 0 16 16"
                 onClick={handleCarruselForward}
@@ -82,29 +124,12 @@ export const ClothsPages = () => {
                 />
               </svg>
             </div>
-            <div className={`Clothes-container--carrusel ${estadoCarrusel}`}>
-              {images.map((img, index) => (
-                <div className="Clothes-carrusel-subcontainer" key={index}>
-                  <img src={img} alt={title} className="Clothes-img" />
-                </div>
-              ))}
-            </div>
+            {renderSrcImages()}
           </div>
           <div className="Clothes-info">
             <h2 className="Clothes-h2">{title}</h2>
             <span>{precio}</span>
-            <div className="Clothes-carrusel--small">
-              <img
-                src={complementocolor1}
-                alt={title}
-                className="Clothes-img--small"
-              />
-              <img
-                src={complementocolor2}
-                alt={title}
-                className="Clothes-img--small"
-              />
-            </div>
+            {renderComplementImages()}
             <ul className="Clothes-size">
               <button
                 className={`Clothes-btn--small ${
