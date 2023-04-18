@@ -6,7 +6,7 @@ import { AppHome } from "../pages/AppHome";
 import { ShopPage } from "../pages/ShopPage";
 import { TigerPage } from "../pages/TigerPage";
 import { CreamPage } from "../pages/CreamPage";
-import { OgsPage } from "../pages/OgsPage";
+import { MoMoney } from "../pages/MoMoney";
 import { AccesoryPage } from "../pages/AccesoryPage";
 import { ClothsPages } from "../components/ClothsPages";
 import { RegistroPage } from "../pages/RegistroPage";
@@ -28,8 +28,8 @@ export const RoutesPages = () => {
         <Route path="/cloths/cream" element={<CreamPage />} />
         <Route path="paranoia" element={<ParanoiaPage />} />
         <Route path="/cloths/paranoia" element={<ParanoiaPage />} />
-        <Route path="ogs" element={<OgsPage />} />
-        <Route path="/cloths/ogs" element={<OgsPage />} />
+        <Route path="momoney" element={<MoMoney />} />
+        <Route path="/cloths/momoney" element={<MoMoney />} />
         <Route path="accesorios" element={<AccesoryPage />} />
         <Route path="/cloths/accesorios" element={<AccesoryPage />} />
 
