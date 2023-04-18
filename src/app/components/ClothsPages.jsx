@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useCarrusel } from "../hooks/useCarrusel";
 import { useState } from "react";
+import BtnComponent from "./BtnComponent";
 
 export const ClothsPages = () => {
   const [sizeClothes, setSizeClothes] = useState("");
@@ -78,17 +79,7 @@ export const ClothsPages = () => {
         </div>
       );
     } else {
-      return (
-        <h1>Falta Content</h1>
-        // <div className={`Clothes-container--carruselsmall ${estadoCarrusel}`}>
-        //   <div className="Clothes-carrusel-subcontainer">
-        //     <img src={src1} alt={title} className="Clothes-img--mod" />
-        //   </div>
-        //   <div className="Clothes-carrusel-subcontainer">
-        //     <img src={src2} alt={title} className="Clothes-img--mod" />
-        //   </div>
-        // </div>
-      );
+      return <h1>Falta Content</h1>;
     }
   }
   console.log(to1);
@@ -177,7 +168,7 @@ export const ClothsPages = () => {
                 xll
               </button>
             </ul>
-            <button className="Clothes-btn">Añadir a la cesta</button>
+            <BtnComponent value={"Añadir al carrito"} />
             <div className="Clothes-container">
               <span className="Clothes-text">{text}</span>
               <span className="Clothes-text">{text2}</span>

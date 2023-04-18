@@ -622,4 +622,43 @@
   left: -300%;
 }
 
+.Contact {
+  text-align: center;
+}
+.Contact-h2 {
+  margin-bottom: 2rem;
+  border-bottom: 0.125rem solid #ffcc03;
+  max-width: 23.0625rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+}
+.Contact-form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.Contact-label {
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+.Contact-input {
+  padding: 1rem;
+  border-style: none;
+  width: 100%;
+  max-width: 23.0625rem;
+}
+.Contact-container--rotate {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: solid 0.1875rem black;
+  margin-left: auto;
+  margin-right: auto;
+  transform: rotate(-137deg);
+  margin-bottom: 2rem;
+}
+
 /*# sourceMappingURL=index.css.map */

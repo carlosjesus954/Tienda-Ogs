@@ -1,0 +1,38 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.Contact {
+  text-align: center;
+  &-h2 {
+    margin-bottom: 2rem;
+    border-bottom: 0.125rem solid v.$colorPrincipal;
+    max-width: 23.0625rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: uppercase;
+  }
+  &-form {
+    @include m.flex(column nowrap, center, center, 2rem);
+    margin-bottom: 2rem;
+  }
+  &-label {
+    font-size: 1.2rem;
+    font-weight: bolder;
+  }
+  &-input {
+    padding: 1rem;
+    border-style: none;
+    width: 100%;
+    max-width: 23.0625rem;
+  }
+  &-container--rotate {
+    width: 1.5rem;
+    height: 1.5rem;
+    // background-color: black;
+    border: solid 0.1875rem black;
+    margin-left: auto;
+    margin-right: auto;
+    transform: rotate(-137deg);
+    margin-bottom: 2rem;
+  }
+}

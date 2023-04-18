@@ -10,6 +10,7 @@ import { BeerAndChurros } from "../pages/BeerAndChurros";
 import { OgsPage } from "../pages/OgsPage";
 import { AccesoryPage } from "../pages/AccesoryPage";
 import { ClothsPages } from "../components/ClothsPages";
+import { RegistroPage } from "../pages/RegistroPage";
 export const RoutesPages = () => {
   return (
     <>
@@ -33,6 +34,8 @@ export const RoutesPages = () => {
         <Route path="/cloths/accesorios" element={<AccesoryPage />} />
 
         <Route path="cloths" element={<ClothsPages />} />
+
+        <Route path="/registro" element={<RegistroPage />} />
       </Routes>
       <Footer />
     </>
