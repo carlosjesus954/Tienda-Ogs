@@ -6,8 +6,7 @@ import { useHoverId } from "../hooks/useHoverId";
 
 export const CatalogoPages = ({ title, catalogType }) => {
   const { hoveredConjuntoId, onToggleShowh2, onToggleHiddenh2 } = useHoverId();
-  const { tiger, cream, beerAndChurros, ogs, accesorios } =
-    useContext(AuthContext);
+  const { tiger, cream, paranoia, ogs, accesorios } = useContext(AuthContext);
 
   const [selectedCloths, setSelectedCloths] = useState({});
   const navigate = useNavigate();
@@ -20,8 +19,8 @@ export const CatalogoPages = ({ title, catalogType }) => {
     case "cream":
       caseValue = cream;
       break;
-    case "beerAndChurros":
-      caseValue = beerAndChurros;
+    case "paranoia":
+      caseValue = paranoia;
       break;
     case "ogs":
       caseValue = ogs;

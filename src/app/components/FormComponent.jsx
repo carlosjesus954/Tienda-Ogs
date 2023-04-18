@@ -25,13 +25,15 @@ export const FormComponent = (props) => {
             name="password"
             className="Contact-input"
           />
-          <BtnComponent value={props.btnTitle} />
         </form>
+        <NavLink to={props.to1}>
+          <BtnComponent value={props.btnTitle1} />
+        </NavLink>
         {props.btnRegistro && (
           <>
             <div className="Contact-container--rotate"></div>
-            <NavLink to={"/registro"}>
-              <BtnComponent value={"Regístrate"} />
+            <NavLink to={props.to2}>
+              <BtnComponent value={props.btnTitle2} />
             </NavLink>
           </>
         )}

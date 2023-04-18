@@ -6,11 +6,11 @@ import { AppHome } from "../pages/AppHome";
 import { ShopPage } from "../pages/ShopPage";
 import { TigerPage } from "../pages/TigerPage";
 import { CreamPage } from "../pages/CreamPage";
-import { BeerAndChurros } from "../pages/BeerAndChurros";
 import { OgsPage } from "../pages/OgsPage";
 import { AccesoryPage } from "../pages/AccesoryPage";
 import { ClothsPages } from "../components/ClothsPages";
 import { RegistroPage } from "../pages/RegistroPage";
+import { ParanoiaPage } from "../pages/ParanoiaPage";
 export const RoutesPages = () => {
   return (
     <>
@@ -26,8 +26,8 @@ export const RoutesPages = () => {
         <Route path="/cloths/tiger" element={<TigerPage />} />
         <Route path="cream" element={<CreamPage />} />
         <Route path="/cloths/cream" element={<CreamPage />} />
-        <Route path="beer&churros" element={<BeerAndChurros />} />
-        <Route path="/cloths/beer&churros" element={<BeerAndChurros />} />
+        <Route path="paranoia" element={<ParanoiaPage />} />
+        <Route path="/cloths/paranoia" element={<ParanoiaPage />} />
         <Route path="ogs" element={<OgsPage />} />
         <Route path="/cloths/ogs" element={<OgsPage />} />
         <Route path="accesorios" element={<AccesoryPage />} />
@@ -35,7 +35,8 @@ export const RoutesPages = () => {
 
         <Route path="cloths" element={<ClothsPages />} />
 
-        <Route path="/registro" element={<RegistroPage />} />
+        <Route path="/contact/registro" element={<RegistroPage />} />
+        <Route path="/contact/registro/contact" element={<ContactPage />} />
       </Routes>
       <Footer />
     </>

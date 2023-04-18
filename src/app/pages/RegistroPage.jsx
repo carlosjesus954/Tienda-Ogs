@@ -5,7 +5,8 @@ export const RegistroPage = () => {
     <FormComponent
       title={"Crea tu cuenta"}
       btnRegistro={false}
-      btnTitle={"Registrate"}
+      btnTitle1={"Registrate"}
+      to1={"contact"}
     />
   );
 };
