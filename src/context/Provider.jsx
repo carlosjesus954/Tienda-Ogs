@@ -490,6 +490,30 @@ const accesorios = [
     element4: "Este artículo NO admite devolución",
   },
 ];
+const contact = [
+  {
+    id: 1,
+    label: "Correo electronico",
+    type: "email",
+  },
+  {
+    id: 2,
+    label: "Contraseña",
+    type: "password",
+  },
+];
+const contactExtra = [
+  {
+    id: 3,
+    label: "Nombre",
+    type: "text",
+  },
+  {
+    id: 4,
+    label: "Apellidos",
+    type: "text",
+  },
+];
 export const Provider = ({ children }) => {
   return (
     <AuthContext.Provider
@@ -506,6 +530,8 @@ export const Provider = ({ children }) => {
         paranoia,
         momoney,
         accesorios,
+        contact,
+        contactExtra,
       }}
     >
       {children}

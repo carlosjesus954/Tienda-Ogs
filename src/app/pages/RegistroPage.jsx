@@ -7,6 +7,7 @@ export const RegistroPage = () => {
       btnRegistro={false}
       btnTitle1={"Registrate"}
       to1={"contact"}
+      formExtra={true}
     />
   );
 };

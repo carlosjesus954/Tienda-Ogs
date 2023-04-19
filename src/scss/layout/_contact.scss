@@ -4,26 +4,49 @@
 .Contact {
   text-align: center;
   &-h2 {
-    margin-bottom: 2rem;
+    text-align: start;
+    margin-bottom: 4rem;
     border-bottom: 0.125rem solid v.$colorPrincipal;
+    width: 100%;
     max-width: 23.0625rem;
     margin-left: auto;
     margin-right: auto;
     text-transform: uppercase;
+    font-size: 1.8rem;
   }
   &-form {
-    @include m.flex(column nowrap, center, center, 2rem);
+    @include m.flex(column nowrap, center, center, 4rem);
     margin-bottom: 2rem;
+    width: 100%;
+    max-width: 23.0625rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &-container {
+    width: 100%;
+    position: relative;
+    @include m.flex(column nowrap, center, center, 2rem);
   }
   &-label {
-    font-size: 1.2rem;
-    font-weight: bolder;
+    font-size: 1rem;
+    font-weight: lighter;
+    position: absolute;
+    left: 0;
+    transition: top 0.5s ease-out;
+  }
+  &-label--filled {
+    top: -1rem;
+    opacity: 0.5;
   }
   &-input {
-    padding: 1rem;
+    padding: 1rem 0rem 1rem 0rem;
     border-style: none;
     width: 100%;
     max-width: 23.0625rem;
+    border-bottom: solid 1px v.$colorLetra2;
+    background-color: none;
+    outline: none;
+    cursor: pointer;
   }
   &-container--rotate {
     width: 1rem;

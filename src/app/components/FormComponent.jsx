@@ -1,30 +1,77 @@
 import { NavLink } from "react-router-dom";
 import BtnComponent from "../components/BtnComponent";
 
+import { useClickId } from "../hooks/useClickId";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { useForm } from "../hooks/useForm";
+
 export const FormComponent = (props) => {
+  const { contact, contactExtra } = useContext(AuthContext);
+  const { onClickShow, onClickHidden, clickId } = useClickId();
+  const { formState, onInputChange } = useForm();
+
   return (
     <main className="Main Wrapper">
       <section className="Main-contact Contact">
         <h2 className="Contact-h2">{props.title}</h2>
         <form action="#" className="Contact-form">
-          <label htmlFor="email" className="Contact-label">
-            Correo electrónico
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            className="Contact-input"
-          />
-          <label htmlFor="password" className="Contact-label">
-            Contraseña
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            className="Contact-input"
-          />
+          {contact.map((inp) => {
+            const { type, label, id } = inp;
+            return (
+              <div className="Contact-container" key={id}>
+                <label
+                  htmlFor={id}
+                  className={`Contact-label ${
+                    formState[id] || clickId === id
+                      ? "Contact-label--filled"
+                      : ""
+                  }`}
+                >
+                  {label}
+                </label>
+                <input
+                  type={type}
+                  id={id}
+                  name={id}
+                  value={formState[id] || ""}
+                  className="Contact-input"
+                  onChange={onInputChange}
+                  onClick={() => onClickShow(id)}
+                  onBlur={() => onClickHidden(id, formState)}
+                />
+              </div>
+            );
+          })}
+          {props.formExtra &&
+            contactExtra.map((inpu) => {
+              const { type, label, id } = inpu;
+
+              return (
+                <div className="Contact-container" key={id}>
+                  <label
+                    htmlFor={id}
+                    className={`Contact-label ${
+                      formState[id] || clickId === id
+                        ? "Contact-label--filled"
+                        : ""
+                    }`}
+                  >
+                    {label}
+                  </label>
+                  <input
+                    type={type}
+                    id={id}
+                    name={id}
+                    value={formState[id] || ""}
+                    className="Contact-input"
+                    onChange={onInputChange}
+                    onClick={() => onClickShow(id)}
+                    onBlur={() => onClickHidden(id, formState)}
+                  />
+                </div>
+              );
+            })}
         </form>
         <NavLink to={props.to1}>
           <BtnComponent value={props.btnTitle1} />

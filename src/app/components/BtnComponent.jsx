@@ -1,3 +1,3 @@
 export default function BtnComponent(props) {
-  return <button className="Clothes-btn">{props.value}</button>;
+  return <button className="Btn-reutilizable">{props.value}</button>;
 }
