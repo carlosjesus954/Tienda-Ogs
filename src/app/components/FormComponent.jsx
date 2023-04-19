@@ -10,7 +10,9 @@ export const FormComponent = (props) => {
   const { contact, contactExtra } = useContext(AuthContext);
   const { onClickShow, onClickHidden, clickId } = useClickId();
   const { formState, onInputChange } = useForm();
-
+  const onValidateForm = () => {
+    console.log("de momento no esta validado");
+  };
   return (
     <main className="Main Wrapper">
       <section className="Main-contact Contact">
@@ -80,7 +82,10 @@ export const FormComponent = (props) => {
           <>
             <div className="Contact-container--rotate"></div>
             <NavLink to={props.to2}>
-              <BtnComponent value={props.btnTitle2} />
+              <BtnComponent
+                value={props.btnTitle2}
+                funcion={() => onValidateForm()}
+              />
             </NavLink>
           </>
         )}

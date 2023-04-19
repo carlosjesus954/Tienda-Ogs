@@ -52,6 +52,7 @@
 .Header-icons {
   width: 1.5rem;
   cursor: pointer;
+  fill: rgb(32, 32, 32);
 }
 @media screen and (min-width: 742px) {
   .Header-icons {

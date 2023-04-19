@@ -41,6 +41,7 @@
   &-icons {
     width: 1.5rem;
     cursor: pointer;
+    fill: v.$colorLetra;
     @include m.tablet {
       width: 2rem;
     }
