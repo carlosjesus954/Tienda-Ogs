@@ -3,10 +3,10 @@
 
 .Main {
   margin-top: 6.5rem;
-  padding: 0 1rem 0 1rem;
-
+  position: relative;
   &-global {
     display: grid;
+    padding: 0 1rem 0 1rem;
     grid-template-columns: repeat(1, 1fr);
     @include m.desktopL {
       gap: 1rem;

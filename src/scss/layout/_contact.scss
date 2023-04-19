@@ -32,11 +32,14 @@
     font-weight: lighter;
     position: absolute;
     left: 0;
+    top: 0; /* establece top en 0 */
     transition: top 0.5s ease-out;
   }
+
   &-label--filled {
-    top: -1rem;
+    top: -1.5rem; /* establece top en un valor más bajo */
     opacity: 0.5;
+    transition: top 0.75s ease-out; /* aumenta la duración de la transición */
   }
   &-input {
     padding: 1rem 0rem 1rem 0rem;

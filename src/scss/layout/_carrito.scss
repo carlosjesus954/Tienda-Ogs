@@ -1,0 +1,56 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.Carrito {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.322);
+  &-global {
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+    width: 80%;
+    margin-left: auto;
+    padding: 5rem 1.4rem 1.4rem 1.4rem;
+    @include m.flex(column nowrap, start, start, 2rem);
+  }
+  &-h2 {
+    margin-bottom: 4rem;
+  }
+  &-cards {
+    position: relative;
+    @include m.flex(row nowrap, space-between, start, 0.5rem);
+    width: 100%;
+    border-bottom: solid 0.1rem v.$colorLetra2;
+    padding-bottom: 2rem;
+  }
+  &-icon {
+    width: 1.1rem;
+    position: absolute;
+    right: 2rem;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+  &-img {
+    width: 6rem;
+  }
+  &-h3 {
+    margin-bottom: 1rem;
+  }
+  &-container {
+    padding-top: 2rem;
+  }
+  &-subcontainer {
+    @include m.flex(row nowrap, space-between, center, 1rem);
+  }
+  &-size {
+    font-size: 0.9rem;
+  }
+  &-precio {
+    font-size: 0.9rem;
+  }
+}

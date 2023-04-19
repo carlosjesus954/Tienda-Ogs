@@ -2,15 +2,20 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useCarrusel } from "../hooks/useCarrusel";
 import { useState } from "react";
 import BtnComponent from "./BtnComponent";
+import { CarritoMuestra } from "./CarritoMuestra";
 
 export const ClothsPages = () => {
-  const [sizeClothes, setSizeClothes] = useState("");
+  const [complementoColor, setComplementoColor] = useState({
+    color1: true,
+    color2: false,
+  });
+  const [sizeClothes, setSizeClothes] = useState("xxl");
   const [sizeActive, setSizeActive] = useState({
     s: false,
     m: false,
     l: false,
     xl: false,
-    xll: false,
+    xll: true,
   });
   const { state } = useLocation();
   const {
@@ -39,7 +44,14 @@ export const ClothsPages = () => {
   const images = [src1, src2, src3, src4];
   const { handleCarruselBack, handleCarruselForward, estadoCarrusel } =
     useCarrusel(images);
+  const handleColor = (color) => {
+    const newColor = color.target.id;
 
+    const newActive = Object.keys(complementoColor).reduce((acc, key) => {
+      return { ...acc, [key]: key === newColor };
+    }, {});
+    setComplementoColor(newActive);
+  };
   const handleSize = (ele) => {
     const newSize = ele.target.value;
     const newActive = Object.keys(sizeActive).reduce((acc, key) => {
@@ -56,12 +68,20 @@ export const ClothsPages = () => {
           <img
             src={complementocolor1}
             alt={title}
-            className="Clothes-img--small"
+            className={`Clothes-img--small ${
+              complementoColor["color1"] ? "Clothes-img--smallSelected" : ""
+            }`}
+            onClick={handleColor}
+            id={"color1"}
           />
           <img
             src={complementocolor2}
             alt={title}
-            className="Clothes-img--small"
+            className={`Clothes-img--small ${
+              complementoColor["color2"] ? "Clothes-img--smallSelected" : ""
+            }`}
+            onClick={handleColor}
+            id={"color2"}
           />
         </div>
       );
@@ -82,10 +102,10 @@ export const ClothsPages = () => {
       return <h1>Falta Content</h1>;
     }
   }
-  console.log(to1);
+  console.log(complementoColor);
   return (
-    <main className="Main Wrapper">
-      <section className="Main-clothes Clothes">
+    <main className="Main ">
+      <section className="Main-clothes Clothes Wrapper">
         <div className="Clothes-global">
           <div className="Clothes-carrusel">
             <div className="Clothes-carrusel--btns">
@@ -201,6 +221,15 @@ export const ClothsPages = () => {
           </div>
         </div>
       </section>
+      <CarritoMuestra
+        id={id}
+        img1={src1}
+        img2={src2}
+        color={complementoColor}
+        size={sizeClothes}
+        nombre={title}
+        precio={precio}
+      />
     </main>
   );
 };

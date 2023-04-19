@@ -14,9 +14,12 @@
   &-container {
     @include m.flex(row nowrap, space-between, center, 1.3rem);
     position: relative;
+    z-index: 2;
   }
   &-menu {
     width: 1.5rem;
+    position: relative;
+    z-index: 3;
     cursor: pointer;
     @include m.tablet {
       width: 2rem;

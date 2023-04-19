@@ -76,7 +76,7 @@ export const FormComponent = (props) => {
             })}
         </form>
         <NavLink to={props.to1}>
-          <BtnComponent value={props.btnTitle1} />
+          <BtnComponent value={props.btnTitle1} funcion={null} />
         </NavLink>
         {props.btnRegistro && (
           <>
