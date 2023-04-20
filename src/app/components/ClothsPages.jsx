@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useCarrusel } from "../hooks/useCarrusel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BtnComponent from "./BtnComponent";
 import { CarritoMuestra } from "./CarritoMuestra";
 
@@ -9,6 +9,7 @@ export const ClothsPages = () => {
     color1: true,
     color2: false,
   });
+
   const [sizeClothes, setSizeClothes] = useState("xxl");
   const [sizeActive, setSizeActive] = useState({
     s: false,
@@ -17,6 +18,9 @@ export const ClothsPages = () => {
     xl: false,
     xll: true,
   });
+
+  const [carrito, setCarrito] = useState([null]);
+
   const { state } = useLocation();
   const {
     id,
@@ -41,9 +45,13 @@ export const ClothsPages = () => {
     to1,
     to2,
   } = state.clothData;
+
   const images = [src1, src2, src3, src4];
+
   const { handleCarruselBack, handleCarruselForward, estadoCarrusel } =
     useCarrusel(images);
+
+  //FUNCION HANDLE COLOR
   const handleColor = (color) => {
     const newColor = color.target.id;
 
@@ -51,15 +59,6 @@ export const ClothsPages = () => {
       return { ...acc, [key]: key === newColor };
     }, {});
     setComplementoColor(newActive);
-  };
-  const handleSize = (ele) => {
-    const newSize = ele.target.value;
-    const newActive = Object.keys(sizeActive).reduce((acc, key) => {
-      return { ...acc, [key]: key === newSize };
-    }, {});
-
-    setSizeClothes(newSize);
-    setSizeActive(newActive);
   };
   function renderComplementImages() {
     if (complementocolor1 && complementocolor2) {
@@ -87,6 +86,20 @@ export const ClothsPages = () => {
       );
     }
   }
+
+  //FUNCION HANDLE SIZE
+
+  const handleSize = (ele) => {
+    const newSize = ele.target.value;
+    const newActive = Object.keys(sizeActive).reduce((acc, key) => {
+      return { ...acc, [key]: key === newSize };
+    }, {});
+
+    setSizeClothes(newSize);
+    setSizeActive(newActive);
+  };
+
+  //CARRUSEL
   function renderSrcImages() {
     if (src1 && src2 && src3 && src4) {
       return (
@@ -102,7 +115,26 @@ export const ClothsPages = () => {
       return <h1>Falta Content</h1>;
     }
   }
-  console.log(complementoColor);
+
+  //AÑADIR AL CARRITO
+
+  const onAñadirCarrito = () => {
+    console.log("Soy homo");
+    const newObjeto = {
+      id: id,
+      src1: src1,
+      src3: src3,
+      size: sizeClothes,
+      nombre: title,
+      precio: precio,
+      color: complementoColor,
+    };
+    setCarrito(newObjeto);
+  };
+
+  useEffect(() => {
+    console.log(carrito);
+  }, [carrito]);
   return (
     <main className="Main ">
       <section className="Main-clothes Clothes Wrapper">
@@ -188,7 +220,9 @@ export const ClothsPages = () => {
                 xll
               </button>
             </ul>
-            <BtnComponent value={"Añadir al carrito"} />
+            <button className="Clothes-btn" onClick={onAñadirCarrito}>
+              Añadir al carrito
+            </button>
             <div className="Clothes-container">
               <span className="Clothes-text">{text}</span>
               <span className="Clothes-text">{text2}</span>

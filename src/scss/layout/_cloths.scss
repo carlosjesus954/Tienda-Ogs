@@ -144,6 +144,21 @@
       width: 18rem;
     }
   }
+  &-btn {
+    background-color: v.$colorPrincipal;
+    border-style: none;
+    padding: 1rem;
+    width: 100%;
+    max-width: 23.3rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.2s;
+    font-weight: bolder;
+  }
+  &-btn:hover {
+    background-color: black;
+    color: white;
+  }
 }
 .Clothes-carrusel--move1 {
   left: -100%;
