@@ -1,7 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useCarrusel } from "../hooks/useCarrusel";
 import { useEffect, useState } from "react";
-import BtnComponent from "./BtnComponent";
 import { CarritoMuestra } from "./CarritoMuestra";
 
 export const ClothsPages = () => {
@@ -20,7 +19,7 @@ export const ClothsPages = () => {
   });
 
   const [carrito, setCarrito] = useState([null]);
-
+  const [estadoCarrito, setEstadoCarrito] = useState(false);
   const { state } = useLocation();
   const {
     id,
@@ -119,7 +118,6 @@ export const ClothsPages = () => {
   //AÑADIR AL CARRITO
 
   const onAñadirCarrito = () => {
-    console.log("Soy homo");
     const newObjeto = {
       id: id,
       src1: src1,
@@ -130,11 +128,14 @@ export const ClothsPages = () => {
       color: complementoColor,
     };
     setCarrito(newObjeto);
+    setEstadoCarrito(!estadoCarrito);
   };
 
-  useEffect(() => {
-    console.log(carrito);
-  }, [carrito]);
+  // useEffect(() => {
+  //   console.log(carrito);
+  //   console.log(estadoCarrito);
+  // }, [carrito]);
+
   return (
     <main className="Main ">
       <section className="Main-clothes Clothes Wrapper">
@@ -255,15 +256,7 @@ export const ClothsPages = () => {
           </div>
         </div>
       </section>
-      <CarritoMuestra
-        id={id}
-        img1={src1}
-        img2={src2}
-        color={complementoColor}
-        size={sizeClothes}
-        nombre={title}
-        precio={precio}
-      />
+      <CarritoMuestra complementoRopa={carrito} estadoCarrito={estadoCarrito} />
     </main>
   );
 };

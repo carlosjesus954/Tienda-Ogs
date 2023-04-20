@@ -7,6 +7,7 @@
   position: fixed;
   top: 0;
   right: -100%;
+  transition: 0.5s ease-in-out;
   z-index: 2;
   background-color: rgba(255, 255, 255, 0.322);
   &-global {
@@ -73,5 +74,9 @@
   &-btn:hover {
     background-color: black;
     color: white;
+  }
+  &--show {
+    right: 0;
+    transition: 0.5s ease-in-out;
   }
 }
