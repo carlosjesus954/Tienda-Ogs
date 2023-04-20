@@ -770,6 +770,7 @@
   flex-flow: column nowrap;
   justify-content: space-between;
   height: 100%;
+  overflow: scroll;
 }
 .Carrito-icon {
   width: 1.1rem;

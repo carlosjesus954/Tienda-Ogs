@@ -18,7 +18,7 @@ export const ClothsPages = () => {
     xll: true,
   });
 
-  const [carrito, setCarrito] = useState([null]);
+  const [carrito, setCarrito] = useState([]);
   const [estadoCarrito, setEstadoCarrito] = useState(false);
   const { state } = useLocation();
   const {
