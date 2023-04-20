@@ -723,6 +723,7 @@
   background-color: rgba(255, 255, 255, 0.322);
 }
 .Carrito-global {
+  position: relative;
   background-color: rgb(255, 255, 255);
   height: 100vh;
   width: 80%;
@@ -747,6 +748,12 @@
   width: 100%;
   border-bottom: solid 0.1rem rgb(114, 114, 114);
   padding-bottom: 2rem;
+}
+.Carrito-subglobal {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  height: 100%;
 }
 .Carrito-icon {
   width: 1.1rem;
@@ -777,6 +784,20 @@
 }
 .Carrito-precio {
   font-size: 0.9rem;
+}
+.Carrito-btn {
+  padding: 1rem;
+  width: 100%;
+  max-width: 30rem;
+  background-color: #ffcc03;
+  border-style: none;
+  cursor: pointer;
+  position: relative;
+  bottom: 1rem;
+}
+.Carrito-btn:hover {
+  background-color: black;
+  color: white;
 }
 
 /*# sourceMappingURL=index.css.map */
