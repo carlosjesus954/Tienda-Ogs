@@ -127,7 +127,7 @@ export const ClothsPages = () => {
       precio: precio,
       color: complementoColor,
     };
-    setCarrito(newObjeto);
+    setCarrito([...carrito, newObjeto]);
     setEstadoCarrito(!estadoCarrito);
   };
 

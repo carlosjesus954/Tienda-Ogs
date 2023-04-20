@@ -6,15 +6,10 @@ export const CarritoMuestra = (props) => {
     if (complementoRopa === null) {
       return <h1>Error: Falta content</h1>;
     } else {
-      const ropaArray = [
-        {
-          ...complementoRopa,
-        },
-      ];
-      console.log(ropaArray);
+      // console.log(ropaArray);
       return (
         <div className="Carrito-subglobal">
-          {ropaArray.map((elem, index) => {
+          {complementoRopa.map((elem, index) => {
             const { id, src1, src3, size, nombre, color, precio } = elem;
             return (
               <div className="Carrito-cards" key={index}>
