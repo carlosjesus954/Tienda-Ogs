@@ -1,11 +1,16 @@
 export const CarritoMuestra = (props) => {
   const { complementoRopa, estadoCarrito } = props;
-  // console.log(complementoRopa, estadoCarrito);
+
+  console.log(complementoRopa, estadoCarrito);
   function mostrarCarro() {
     if (complementoRopa === null) {
       return <h1>Error: Falta content</h1>;
     } else {
-      const ropaArray = Object.values(complementoRopa);
+      const ropaArray = [
+        {
+          ...complementoRopa,
+        },
+      ];
       console.log(ropaArray);
       return (
         <div className="Carrito-subglobal">
