@@ -751,6 +751,21 @@
   align-items: start;
   gap: 2rem;
 }
+@media screen and (min-width: 452px) {
+  .Carrito-global {
+    max-width: 18.75rem;
+  }
+}
+@media screen and (min-width: 742px) {
+  .Carrito-global {
+    max-width: 22rem;
+  }
+}
+@media screen and (min-width: 1250px) {
+  .Carrito-global {
+    max-width: 24rem;
+  }
+}
 .Carrito-h2 {
   margin-bottom: 4rem;
 }
@@ -768,9 +783,11 @@
 .Carrito-subglobal {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 2rem;
   height: 100%;
   overflow: scroll;
+  width: 100%;
 }
 .Carrito-icon {
   width: 1.1rem;
@@ -780,11 +797,26 @@
   right: 0;
   cursor: pointer;
 }
+@media screen and (min-width: 1250px) {
+  .Carrito-icon {
+    width: 1.3rem;
+  }
+}
 .Carrito-img {
   width: 6rem;
 }
+@media screen and (min-width: 1250px) {
+  .Carrito-img {
+    width: 8rem;
+  }
+}
 .Carrito-h3 {
   margin-bottom: 1rem;
+}
+@media screen and (min-width: 1250px) {
+  .Carrito-h3 {
+    font-size: 1.3rem;
+  }
 }
 .Carrito-container {
   padding-top: 2rem;
@@ -796,11 +828,13 @@
   align-items: center;
   gap: 1rem;
 }
-.Carrito-size {
+.Carrito-text {
   font-size: 0.9rem;
 }
-.Carrito-precio {
-  font-size: 0.9rem;
+@media screen and (min-width: 1250px) {
+  .Carrito-text {
+    font-size: 1.1rem;
+  }
 }
 .Carrito-btn {
   padding: 1rem;
@@ -810,7 +844,6 @@
   border-style: none;
   cursor: pointer;
   position: relative;
-  bottom: 1rem;
 }
 .Carrito-btn:hover {
   background-color: black;
@@ -819,6 +852,31 @@
 .Carrito--show {
   right: 0;
   transition: 0.5s ease-in-out;
+}
+.Carrito-icon--close {
+  width: 2rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+@media screen and (min-width: 1250px) {
+  .Carrito-icon--close {
+    font-size: 2.5rem;
+  }
+}
+.Carrito-container--spacebeetwen {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+.Carrito-h3--vacio {
+  background-color: red;
+  padding: 1rem;
+  color: white;
+  font-weight: normal;
 }
 
 /*# sourceMappingURL=index.css.map */

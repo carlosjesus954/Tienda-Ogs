@@ -18,6 +18,15 @@
     margin-left: auto;
     padding: 5rem 1.4rem 1.4rem 1.4rem;
     @include m.flex(column nowrap, start, start, 2rem);
+    @include m.telefonoM {
+      max-width: 18.75rem;
+    }
+    @include m.tablet {
+      max-width: 22rem;
+    }
+    @include m.desktop {
+      max-width: 24rem;
+    }
   }
   &-h2 {
     margin-bottom: 4rem;
@@ -32,9 +41,11 @@
   &-subglobal {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-between;
+    justify-content: start;
+    gap: 2rem;
     height: 100%;
     overflow: scroll;
+    width: 100%;
   }
   &-icon {
     width: 1.1rem;
@@ -43,12 +54,21 @@
     top: 0;
     right: 0;
     cursor: pointer;
+    @include m.desktop {
+      width: 1.3rem;
+    }
   }
   &-img {
     width: 6rem;
+    @include m.desktop {
+      width: 8rem;
+    }
   }
   &-h3 {
     margin-bottom: 1rem;
+    @include m.desktop {
+      font-size: 1.3rem;
+    }
   }
   &-container {
     padding-top: 2rem;
@@ -56,11 +76,11 @@
   &-subcontainer {
     @include m.flex(row nowrap, space-between, center, 1rem);
   }
-  &-size {
+  &-text {
     font-size: 0.9rem;
-  }
-  &-precio {
-    font-size: 0.9rem;
+    @include m.desktop {
+      font-size: 1.1rem;
+    }
   }
   &-btn {
     padding: 1rem;
@@ -70,7 +90,6 @@
     border-style: none;
     cursor: pointer;
     position: relative;
-    bottom: 1rem;
   }
   &-btn:hover {
     background-color: black;
@@ -79,5 +98,28 @@
   &--show {
     right: 0;
     transition: 0.5s ease-in-out;
+  }
+  &-icon--close {
+    width: 2rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    @include m.desktop {
+      font-size: 2.5rem;
+    }
+  }
+  &-container--spacebeetwen {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+  }
+  &-h3--vacio {
+    background-color: red;
+    padding: 1rem;
+    color: white;
+    font-weight: normal;
   }
 }

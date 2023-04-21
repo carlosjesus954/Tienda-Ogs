@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useCarrusel } from "../hooks/useCarrusel";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CarritoMuestra } from "./CarritoMuestra";
 
 export const ClothsPages = () => {
@@ -115,6 +115,8 @@ export const ClothsPages = () => {
     }
   }
 
+  //
+
   //AÑADIR AL CARRITO
 
   const onAñadirCarrito = () => {
@@ -131,10 +133,16 @@ export const ClothsPages = () => {
     setEstadoCarrito(!estadoCarrito);
   };
 
-  // useEffect(() => {
-  //   console.log(carrito);
-  //   console.log(estadoCarrito);
-  // }, [carrito]);
+  //Borrar ropa
+  function actualizarCarrito(nuevoCarrito) {
+    setCarrito(nuevoCarrito);
+  }
+
+  function borrarRopa(index) {
+    const newComplementoRopa = [...carrito];
+    newComplementoRopa.splice(index, 1);
+    actualizarCarrito(newComplementoRopa);
+  }
 
   return (
     <main className="Main ">
@@ -256,7 +264,12 @@ export const ClothsPages = () => {
           </div>
         </div>
       </section>
-      <CarritoMuestra complementoRopa={carrito} estadoCarrito={estadoCarrito} />
+      <CarritoMuestra
+        carrito={carrito}
+        estadoCarrito={estadoCarrito}
+        borrarRopa={borrarRopa}
+        setEstadoCarrito={setEstadoCarrito}
+      />
     </main>
   );
 };
