@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useCarrusel } from "../hooks/useCarrusel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CarritoMuestra } from "./CarritoMuestra";
 
 export const ClothsPages = () => {
@@ -143,6 +143,18 @@ export const ClothsPages = () => {
     newComplementoRopa.splice(index, 1);
     actualizarCarrito(newComplementoRopa);
   }
+  //USE EFFECT TO STORE CART IN LOCAL STORAGE
+  // useEffect(() => {
+  //   localStorage.setItem("carrito", JSON.stringify(carrito));
+  // }, [carrito]);
+
+  //USE EFFECT TO LOAD CART FROM LOCAL STORAGE
+  // useEffect(() => {
+  //   const cartData = localStorage.getItem("carrito");
+  //   if (cartData) {
+  //     setCarrito(JSON.parse(cartData));
+  //   }
+  // }, []);
 
   return (
     <main className="Main ">

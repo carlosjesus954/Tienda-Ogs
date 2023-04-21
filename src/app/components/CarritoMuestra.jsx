@@ -50,6 +50,9 @@ export const CarritoMuestra = (props) => {
               </div>
             );
           })}
+          <div className="Carrito-cuentas">
+            <h4>Total:</h4>
+          </div>
         </div>
       );
     }
@@ -74,6 +77,7 @@ export const CarritoMuestra = (props) => {
         <h2 className="Carrito-h2">Su carrito</h2>
         <div className="Carrito-container--spacebeetwen">
           {mostrarCarro()}
+
           <button className="Carrito-btn">Ver carrito</button>
         </div>
       </div>
