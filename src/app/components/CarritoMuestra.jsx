@@ -1,12 +1,15 @@
 import { useContext } from "react";
-import { useCounter } from "../hooks/useCounter";
 import { AuthContext } from "../../context/AuthContext";
 
 export const CarritoMuestra = (props) => {
-  const { carrito, estadoCarrito, borrarRopa, handleCerrarCarrito } =
-    useContext(AuthContext);
-  const { counter, increment, reset } = useCounter();
-
+  const {
+    carrito,
+    estadoCarrito,
+    borrarRopa,
+    handleCerrarCarrito,
+    counter,
+    increment,
+  } = useContext(AuthContext);
   function mostrarCarro() {
     if (carrito.length === 0) {
       return <h3 className="Carrito-h3--vacio">El carrito esta vacío</h3>;

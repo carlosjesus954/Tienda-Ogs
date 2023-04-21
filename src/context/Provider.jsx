@@ -1,3 +1,4 @@
+import { useCounter } from "../app/hooks/useCounter";
 import { AuthContext } from "./AuthContext";
 import { useState } from "react";
 
@@ -519,6 +520,7 @@ const contactExtra = [
 export const Provider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
   const [estadoCarrito, setEstadoCarrito] = useState(false);
+  const { counter, increment, reset } = useCounter();
 
   const onAñadirCarrito = (props) => {
     const { id, src1, src3, sizeClothes, title, precio, complementoColor } =
@@ -570,6 +572,8 @@ export const Provider = ({ children }) => {
         actualizarCarrito,
         borrarRopa,
         handleCerrarCarrito,
+        counter,
+        increment,
       }}
     >
       {children}
