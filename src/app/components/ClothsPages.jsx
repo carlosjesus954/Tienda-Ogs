@@ -1,14 +1,16 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useCarrusel } from "../hooks/useCarrusel";
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { CarritoMuestra } from "./CarritoMuestra";
+import { AuthContext } from "../../context/AuthContext";
 
 export const ClothsPages = () => {
   const [complementoColor, setComplementoColor] = useState({
     color1: true,
     color2: false,
   });
-
+  const { onAñadirCarrito, carrito, estadoCarrito } = useContext(AuthContext);
+  console.log(carrito);
   const [sizeClothes, setSizeClothes] = useState("xxl");
   const [sizeActive, setSizeActive] = useState({
     s: false,
@@ -17,9 +19,6 @@ export const ClothsPages = () => {
     xl: false,
     xll: true,
   });
-
-  const [carrito, setCarrito] = useState([]);
-  const [estadoCarrito, setEstadoCarrito] = useState(false);
   const { state } = useLocation();
   const {
     id,
@@ -114,48 +113,6 @@ export const ClothsPages = () => {
       return <h1>Falta Content</h1>;
     }
   }
-
-  //
-
-  //AÑADIR AL CARRITO
-
-  const onAñadirCarrito = () => {
-    const newObjeto = {
-      id: id,
-      src1: src1,
-      src3: src3,
-      size: sizeClothes,
-      nombre: title,
-      precio: precio,
-      color: complementoColor,
-    };
-    setCarrito([...carrito, newObjeto]);
-    setEstadoCarrito(!estadoCarrito);
-  };
-
-  //Borrar ropa
-  function actualizarCarrito(nuevoCarrito) {
-    setCarrito(nuevoCarrito);
-  }
-
-  function borrarRopa(index) {
-    const newComplementoRopa = [...carrito];
-    newComplementoRopa.splice(index, 1);
-    actualizarCarrito(newComplementoRopa);
-  }
-  //USE EFFECT TO STORE CART IN LOCAL STORAGE
-  // useEffect(() => {
-  //   localStorage.setItem("carrito", JSON.stringify(carrito));
-  // }, [carrito]);
-
-  //USE EFFECT TO LOAD CART FROM LOCAL STORAGE
-  // useEffect(() => {
-  //   const cartData = localStorage.getItem("carrito");
-  //   if (cartData) {
-  //     setCarrito(JSON.parse(cartData));
-  //   }
-  // }, []);
-
   return (
     <main className="Main ">
       <section className="Main-clothes Clothes Wrapper">
@@ -241,7 +198,20 @@ export const ClothsPages = () => {
                 xll
               </button>
             </ul>
-            <button className="Clothes-btn" onClick={onAñadirCarrito}>
+            <button
+              className="Clothes-btn"
+              onClick={() =>
+                onAñadirCarrito({
+                  id,
+                  src1,
+                  src3,
+                  sizeClothes,
+                  title,
+                  precio,
+                  complementoColor,
+                })
+              }
+            >
               Añadir al carrito
             </button>
             <div className="Clothes-container">
@@ -276,12 +246,7 @@ export const ClothsPages = () => {
           </div>
         </div>
       </section>
-      <CarritoMuestra
-        carrito={carrito}
-        estadoCarrito={estadoCarrito}
-        borrarRopa={borrarRopa}
-        setEstadoCarrito={setEstadoCarrito}
-      />
+      <CarritoMuestra />
     </main>
   );
 };

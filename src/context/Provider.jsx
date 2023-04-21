@@ -1,4 +1,5 @@
 import { AuthContext } from "./AuthContext";
+import { useState } from "react";
 
 const navSup = [
   {
@@ -514,7 +515,38 @@ const contactExtra = [
     type: "text",
   },
 ];
+
 export const Provider = ({ children }) => {
+  const [carrito, setCarrito] = useState([]);
+  const [estadoCarrito, setEstadoCarrito] = useState(false);
+
+  const onAñadirCarrito = (props) => {
+    const { id, src1, src3, sizeClothes, title, precio, complementoColor } =
+      props;
+    const newObjeto = {
+      id: id,
+      src1: src1,
+      src3: src3,
+      size: sizeClothes,
+      nombre: title,
+      precio: precio,
+      color: complementoColor,
+    };
+    setCarrito([...carrito, newObjeto]);
+    setEstadoCarrito(!estadoCarrito);
+  };
+  const handleCerrarCarrito = () => {
+    setEstadoCarrito(!estadoCarrito);
+  };
+  function actualizarCarrito(nuevoCarrito) {
+    setCarrito(nuevoCarrito);
+  }
+
+  function borrarRopa(index) {
+    const newComplementoRopa = [...carrito];
+    newComplementoRopa.splice(index, 1);
+    actualizarCarrito(newComplementoRopa);
+  }
   return (
     <AuthContext.Provider
       value={{
@@ -532,6 +564,12 @@ export const Provider = ({ children }) => {
         accesorios,
         contact,
         contactExtra,
+        carrito,
+        estadoCarrito,
+        onAñadirCarrito,
+        actualizarCarrito,
+        borrarRopa,
+        handleCerrarCarrito,
       }}
     >
       {children}
