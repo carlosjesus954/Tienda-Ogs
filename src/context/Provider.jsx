@@ -166,6 +166,7 @@ const tiger = [
     altsimilar2: "Camiseta-beer",
     to1: "ogs",
     to2: "beer&churros",
+    cantidad: 1,
   },
   {
     id: 2,
@@ -192,6 +193,7 @@ const tiger = [
     altsimilar2: "Camiseta-beer",
     to1: "ogs",
     to2: "beer&churros",
+    cantidad: 1,
   },
   {
     id: 3,
@@ -218,6 +220,7 @@ const tiger = [
     altsimilar2: "Camiseta-beer",
     to1: "ogs",
     to2: "beer&churros",
+    cantidad: 1,
   },
 ];
 const cream = [
@@ -246,6 +249,7 @@ const cream = [
     altsimilar2: "gorra",
     to1: "tiger",
     to2: "accesorios",
+    cantidad: 1,
   },
   {
     id: 2,
@@ -272,6 +276,7 @@ const cream = [
     altsimilar2: "gorra",
     to1: "tiger",
     to2: "accesorios",
+    cantidad: 1,
   },
 ];
 const paranoia = [
@@ -300,6 +305,7 @@ const paranoia = [
     altsimilar2: "camiseta-tiger",
     to1: "accesorios",
     to2: "tiger",
+    cantidad: 1,
   },
   {
     id: 2,
@@ -326,6 +332,7 @@ const paranoia = [
     altsimilar2: "camiseta-tiger",
     to1: "accesorios",
     to2: "tiger",
+    cantidad: 1,
   },
   {
     id: 3,
@@ -352,6 +359,7 @@ const paranoia = [
     altsimilar2: "camiseta-tiger",
     to1: "accesorios",
     to2: "tiger",
+    cantidad: 1,
   },
 ];
 const momoney = [
@@ -381,6 +389,7 @@ const momoney = [
     altsimilar2: "sudadera-cream",
     to1: "momoney",
     to2: "cream",
+    cantidad: 1,
   },
   {
     id: 2,
@@ -407,6 +416,7 @@ const momoney = [
     altsimilar2: "sudadera-cream",
     to1: "momoney",
     to2: "cream",
+    cantidad: 1,
   },
 ];
 const accesorios = [
@@ -436,6 +446,7 @@ const accesorios = [
     altsimilar2: "camiseta-tiger",
     to1: "paranoia",
     to2: "tiger",
+    cantidad: 1,
   },
   {
     id: 2,
@@ -462,6 +473,7 @@ const accesorios = [
     altsimilar2: "camiseta-tiger",
     to1: "paranoia",
     to2: "tiger",
+    cantidad: 1,
   },
   {
     id: 3,
@@ -490,6 +502,7 @@ const accesorios = [
     element2: "Ala ancha y redondeada",
     element3: "6 paneles",
     element4: "Este artículo NO admite devolución",
+    cantidad: 1,
   },
 ];
 const contact = [
@@ -520,34 +533,80 @@ const contactExtra = [
 export const Provider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
   const [estadoCarrito, setEstadoCarrito] = useState(false);
-  const { counter, increment, reset } = useCounter();
-
   const onAñadirCarrito = (props) => {
-    const { id, src1, src3, sizeClothes, title, precio, complementoColor } =
-      props;
+    const {
+      id,
+      src1,
+      src3,
+      sizeClothes,
+      title,
+      precio,
+      complementoColor,
+      cantidad,
+    } = props;
+
     const newObjeto = {
       id: id,
       src1: src1,
       src3: src3,
       size: sizeClothes,
       nombre: title,
-      precio: precio,
+      precio: parseFloat(precio),
       color: complementoColor,
+      cantidad: 1,
     };
-    setCarrito([...carrito, newObjeto]);
+
+    const vestimenta = carrito.findIndex(
+      (objeto) =>
+        objeto.nombre === newObjeto.nombre &&
+        objeto.size === newObjeto.size &&
+        objeto.color === newObjeto.color
+    );
+    if (vestimenta >= 0) {
+      // si el objeto ya existe en el carrito, actualizar su cantidad y precio total
+      const newCarrito = [...carrito];
+
+      newCarrito[vestimenta].precio =
+        newCarrito[vestimenta].precio + parseFloat(precio);
+
+      newCarrito[vestimenta].cantidad = newCarrito[vestimenta].cantidad + 1;
+
+      newCarrito[vestimenta].precioTotal =
+        newCarrito[vestimenta].cantidad * parseFloat(precio);
+
+      setCarrito(newCarrito);
+    } else {
+      // si el objeto no existe en el carrito, agregarlo al carrito
+      newObjeto.precioTotal = newObjeto.precio;
+      setCarrito([...carrito, newObjeto]);
+    }
+
     setEstadoCarrito(!estadoCarrito);
   };
+
   const handleCerrarCarrito = () => {
     setEstadoCarrito(!estadoCarrito);
   };
   function actualizarCarrito(nuevoCarrito) {
     setCarrito(nuevoCarrito);
   }
-
   function borrarRopa(index) {
     const newComplementoRopa = [...carrito];
     newComplementoRopa.splice(index, 1);
     actualizarCarrito(newComplementoRopa);
+  }
+
+  function PrecioTotal({ carrito }) {
+    let total = 0;
+    carrito.forEach((objeto) => {
+      total += objeto.precioTotal;
+    });
+
+    return (
+      <h2 className="Carrito-cuentas--precio">
+        Precio Total: {total.toFixed(2)}€
+      </h2>
+    );
   }
   return (
     <AuthContext.Provider
@@ -572,8 +631,7 @@ export const Provider = ({ children }) => {
         actualizarCarrito,
         borrarRopa,
         handleCerrarCarrito,
-        counter,
-        increment,
+        PrecioTotal,
       }}
     >
       {children}

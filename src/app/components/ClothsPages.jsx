@@ -10,7 +10,7 @@ export const ClothsPages = () => {
     color2: false,
   });
   const { onAñadirCarrito, carrito, estadoCarrito } = useContext(AuthContext);
-  console.log(carrito);
+  // console.log(carrito);
   const [sizeClothes, setSizeClothes] = useState("xxl");
   const [sizeActive, setSizeActive] = useState({
     s: false,
@@ -42,6 +42,7 @@ export const ClothsPages = () => {
     complementocolor2,
     to1,
     to2,
+    cantidad,
   } = state.clothData;
 
   const images = [src1, src2, src3, src4];
@@ -209,6 +210,7 @@ export const ClothsPages = () => {
                   title,
                   precio,
                   complementoColor,
+                  cantidad,
                 })
               }
             >

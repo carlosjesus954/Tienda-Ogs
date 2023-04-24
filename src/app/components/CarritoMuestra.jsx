@@ -7,19 +7,18 @@ export const CarritoMuestra = (props) => {
     estadoCarrito,
     borrarRopa,
     handleCerrarCarrito,
-    counter,
-    increment,
+    PrecioTotal,
   } = useContext(AuthContext);
   function mostrarCarro() {
     if (carrito.length === 0) {
       return <h3 className="Carrito-h3--vacio">El carrito esta vacío</h3>;
     } else {
-      // console.log(ropaArray);
       return (
         <div className="Carrito-subglobal">
           {carrito.map((elem, index) => {
-            const { id, src1, src3, size, nombre, color, precio } = elem;
-            console.log(color.color1);
+            const { id, src1, src3, size, nombre, color, precio, cantidad } =
+              elem;
+            // console.log(color.color1);
 
             const handleEliminarRopa = () => {
               borrarRopa(index);
@@ -44,15 +43,15 @@ export const CarritoMuestra = (props) => {
                 <div className="Carrito-container">
                   <h3 className="Carrito-h3">{`${nombre} / ${size.toUpperCase()}`}</h3>
                   <div className="Carrito-subcontainer">
-                    <span className="Carrito-text">Cantidad: {counter}</span>
-                    <span className="Carrito-text">{precio}</span>
+                    <span className="Carrito-text">Cantidad: {cantidad}</span>
+                    <span className="Carrito-text">{precio}€</span>
                   </div>
                 </div>
               </div>
             );
           })}
           <div className="Carrito-cuentas">
-            <h4>Total:</h4>
+            <PrecioTotal carrito={carrito} />
           </div>
         </div>
       );
