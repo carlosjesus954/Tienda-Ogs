@@ -106,7 +106,7 @@ export const CatalogoPages = ({ title, catalogType }) => {
                 <img src={srcImg} alt={alt} className="Catalogo-img " />
                 <div className="Catalogo-text">
                   <h3 className="Catalogo-h3">{title}</h3>
-                  <span className="Catalogo-precio">{precio}</span>
+                  <span className="Catalogo-precio">{precio}€</span>
                 </div>
               </div>
             );
