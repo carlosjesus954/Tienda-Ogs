@@ -150,7 +150,7 @@ export const ClothsPages = () => {
           </div>
           <div className="Clothes-info">
             <h2 className="Clothes-h2">{title}</h2>
-            <span>{precio}</span>
+            <span>{precio}€</span>
             {renderComplementImages()}
             <ul className="Clothes-size">
               <button

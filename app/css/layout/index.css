@@ -844,6 +844,10 @@
   border-style: none;
   cursor: pointer;
   position: relative;
+  text-decoration: none;
+  text-align: center;
+  color: rgb(32, 32, 32);
+  font-weight: bolder;
 }
 .Carrito-btn:hover {
   background-color: black;

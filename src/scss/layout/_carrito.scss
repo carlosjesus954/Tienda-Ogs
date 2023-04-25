@@ -90,6 +90,10 @@
     border-style: none;
     cursor: pointer;
     position: relative;
+    text-decoration: none;
+    text-align: center;
+    color: v.$colorLetra;
+    font-weight: bolder;
   }
   &-btn:hover {
     background-color: black;

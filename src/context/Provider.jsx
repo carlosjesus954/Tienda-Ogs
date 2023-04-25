@@ -149,7 +149,7 @@ const tiger = [
     src4: "/public/assets/camiseta_tiger-hover.jpg",
     title: "TIGER - Camiseta Relaxed Fit",
     alt: "TIGER - Camiseta Relaxed Fit",
-    precio: "32,99€",
+    precio: 32.99,
     to: "tiger-1",
 
     text: "Pa los tigres rectos",
@@ -176,7 +176,7 @@ const tiger = [
     src4: "/public/assets/sudadera1_tiger-carrusel2.jpg",
     title: "TIGER - Sudadera con Capucha",
     alt: "TIGER - Sudadera con Capucha",
-    precio: "42,99€",
+    precio: 42.99,
     to: "tiger-2",
 
     text: "Pa los tigres rectos",
@@ -203,7 +203,7 @@ const tiger = [
     src4: "/public/assets/sudadera2_tiger.jpg",
     title: "TIGER - Sudadera",
     alt: "TIGER - Sudadera",
-    precio: "39,99€",
+    precio: 39.99,
     to: "tiger-3",
 
     text: "Pa los tigres rectos",
@@ -232,7 +232,7 @@ const cream = [
     src3: "/public/assets/sudadera1_cream-hover.jpg",
     title: "C.R.E.A.M. - Sudadera Beige",
     alt: "C.R.E.A.M. - Sudadera Beige",
-    precio: "59,99€",
+    precio: 59.99,
     to: "cream-1",
 
     text: "Un relanzamiento de la prenda estrella del año pasado. Nuevo color, nuevos bordados, misma esencia.",
@@ -259,7 +259,7 @@ const cream = [
     src1: "/public/assets/sudadera1_cream-hover.jpg",
     title: "C.R.E.A.M. - Sudadera Negra",
     alt: "C.R.E.A.M. - Sudadera Negra",
-    precio: "59,99€",
+    precio: 59.99,
     to: "cream-2",
 
     text: "Un relanzamiento de la prenda estrella del año pasado. Nuevo color, nuevos bordados, misma esencia.",
@@ -288,7 +288,7 @@ const paranoia = [
     src4: "/public/assets/camiseta2_paranoia-hover.jpg",
     title: "PARANOIA - Camiseta Huge",
     alt: "PARANOIA - Camiseta Huge",
-    precio: "34.99 €",
+    precio: 34.99,
     to: "paranoia-1",
 
     text: "Para los que mantienen la cabeza alta",
@@ -315,7 +315,7 @@ const paranoia = [
     src4: "/public/assets/sudadera2_paranoia-hover.jpg",
     title: "PARANOIA - Hoodie",
     alt: "PARANOIA - Hoodie",
-    precio: "42,99€",
+    precio: 42.99,
     to: "paranoia-2",
 
     text: "Para los que mantienen la cabeza alta",
@@ -342,7 +342,7 @@ const paranoia = [
     src4: "/public/assets/sudadera4_paranoia-hover.jpg",
     title: "PARANOIA - Hoodie",
     alt: "PARANOIA - Hoodie",
-    precio: "42,99€",
+    precio: 42.99,
     to: "paranoia-3",
 
     text: "Para los que mantienen la cabeza alta",
@@ -371,7 +371,7 @@ const momoney = [
     src4: "/public/assets/camiseta2_momoney-hover.jpg",
     title: "MO' MONEY - Camiseta",
     alt: "MO' MONEY - Camiseta",
-    precio: "26.99 €",
+    precio: 26.99,
     to: "momoney-1",
 
     text: "Este diseño, como diría el Evon, es to rapero",
@@ -399,7 +399,7 @@ const momoney = [
     src4: "/public/assets/sudadera2_momoney-hover.jpg",
     title: "MO' MONEY - Hoodie Oversized",
     alt: "MO' MONEY - Hoodie Oversized",
-    precio: "59.99 €",
+    precio: 59.99,
     to: "momoney-2",
 
     text: "Este diseño, como diría el Evon, es to rapero",
@@ -429,7 +429,7 @@ const accesorios = [
 
     title: "OG's - Beanie",
     alt: "OG's - Beanie",
-    precio: "19.99 €",
+    precio: 19.99,
     to: "accesorios-1",
 
     text: "Gorro con el logo bordado para estos días de intensísimo frío, menos si vives en Málaga, que probablemente hasta mediados de Marzo de 2025 no te hará falta porque el cambio climático es un tema bastante chungo.",
@@ -456,7 +456,7 @@ const accesorios = [
     src4: "/public/assets/calcetines_ogs-complementaria2.jpg",
     title: "SOGS",
     alt: "SOGS",
-    precio: "24.99 €",
+    precio: 24.99,
     to: "accesorios-2",
 
     text: "3 pares de calcetines con estilo simple, clásico y efectivo. Perfectos para combinarlos con tus mejores chanclas como los guiris en Mallorca",
@@ -483,7 +483,7 @@ const accesorios = [
     src4: "/public/assets/gorra1_ogs-hover.jpg",
     title: "KIR - Gorra",
     alt: "KIR - Gorra",
-    precio: "29.99 €",
+    precio: 29.99,
     to: "ogs-3",
 
     text: "Logo y frase bordadas, simple y efectiva. Pa tapar el flequillo asintomático",
@@ -551,11 +551,11 @@ export const Provider = ({ children }) => {
       src3: src3,
       size: sizeClothes,
       nombre: title,
-      precio: parseFloat(precio),
+      precio: precio,
       color: complementoColor,
       cantidad: 1,
     };
-
+    console.log(carrito);
     const vestimenta = carrito.findIndex(
       (objeto) =>
         objeto.nombre === newObjeto.nombre &&
@@ -566,13 +566,12 @@ export const Provider = ({ children }) => {
       // si el objeto ya existe en el carrito, actualizar su cantidad y precio total
       const newCarrito = [...carrito];
 
-      newCarrito[vestimenta].precio =
-        newCarrito[vestimenta].precio + parseFloat(precio);
+      newCarrito[vestimenta].precio = newCarrito[vestimenta].precio + precio;
 
       newCarrito[vestimenta].cantidad = newCarrito[vestimenta].cantidad + 1;
 
       newCarrito[vestimenta].precioTotal =
-        newCarrito[vestimenta].cantidad * parseFloat(precio);
+        newCarrito[vestimenta].cantidad * precio;
 
       setCarrito(newCarrito);
     } else {
@@ -602,11 +601,7 @@ export const Provider = ({ children }) => {
       total += objeto.precioTotal;
     });
 
-    return (
-      <h2 className="Carrito-cuentas--precio">
-        Precio Total: {total.toFixed(2)}€
-      </h2>
-    );
+    return <h2 className="Carrito-cuentas--precio">Precio Total: {total}€</h2>;
   }
   return (
     <AuthContext.Provider
