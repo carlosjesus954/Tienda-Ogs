@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { NavLink } from "react-router-dom";
 
 export const CarritoMuestra = (props) => {
   const {
@@ -78,7 +79,9 @@ export const CarritoMuestra = (props) => {
         <div className="Carrito-container--spacebeetwen">
           {mostrarCarro()}
 
-          <button className="Carrito-btn">Ver carrito</button>
+          <NavLink className="Carrito-btn" to={"shop"}>
+            Ver carrito
+          </NavLink>
         </div>
       </div>
     </div>

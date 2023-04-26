@@ -1,7 +1,7 @@
 @use "../base/variables" as v;
 @use "../base/mixins" as m;
 
-.Shop {
+.ShopNone {
   @include m.flex(column nowrap, center, center, 2rem);
   margin-left: auto;
   margin-right: auto;
@@ -17,5 +17,83 @@
   &-span {
     font-size: 1rem;
     color: v.$colorLetra2;
+  }
+}
+.Shop {
+  padding: 1rem;
+  height: 80vh;
+  &-h2 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+  &-globalcontainer {
+    @include m.flex(column wrap, center, center, 0rem);
+    @include m.tabletL {
+      @include m.flex(row nowrap, start, start, 2rem);
+    }
+  }
+  &-globalCards {
+    width: 100%;
+    @include m.flex(column nowrap, center, center, 2rem);
+    margin-bottom: 2rem;
+  }
+  &-cards {
+    @include m.flex(row nowrap, space-around, center, 0.2rem);
+    padding-bottom: 2rem;
+    border-bottom: 0.1rem solid v.$colorLetra3;
+    position: relative;
+    width: 100%;
+  }
+  &-icon {
+    width: 1.1rem;
+    position: absolute;
+    right: 0.01rem;
+    top: 0.5rem;
+  }
+  &-img {
+    width: 6rem;
+    @include m.telefonoM {
+      width: 8rem;
+    }
+    @include m.tablet {
+      width: 10rem;
+    }
+  }
+
+  &-h3 {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+  }
+  &-subcontainer {
+    width: 100%;
+    max-width: 14rem;
+  }
+  &-textcontainer {
+    @include m.flex(row nowrap, space-between, center, 0rem);
+  }
+  &-text {
+  }
+  &-container {
+    @include m.flex(column nowrap, center, center, 2rem);
+    width: 100%;
+    @include m.tabletL {
+      padding-top: 1rem;
+    }
+  }
+  &-btn {
+    padding: 1rem;
+    width: 100%;
+    max-width: 50rem;
+    background-color: v.$colorPrincipal;
+    border-style: none;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    color: v.$colorLetra;
+    font-weight: bolder;
+    @include m.tabletL {
+      max-width: 30rem;
+    }
   }
 }

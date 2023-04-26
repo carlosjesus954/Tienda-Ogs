@@ -705,7 +705,7 @@
   margin-top: 2rem;
 }
 
-.Shop {
+.ShopNone {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -716,16 +716,126 @@
   max-width: 25rem;
   height: 80vh;
 }
-.Shop-svg {
+.ShopNone-svg {
   width: 5rem;
   fill: rgb(177, 177, 177);
 }
-.Shop-h2 {
+.ShopNone-h2 {
   font-size: 1.8rem;
 }
-.Shop-span {
+.ShopNone-span {
   font-size: 1rem;
   color: rgb(114, 114, 114);
+}
+
+.Shop {
+  padding: 1rem;
+  height: 80vh;
+}
+.Shop-h2 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+.Shop-globalcontainer {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+}
+@media screen and (min-width: 1000px) {
+  .Shop-globalcontainer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+    align-items: start;
+    gap: 2rem;
+  }
+}
+.Shop-globalCards {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.Shop-cards {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.2rem;
+  padding-bottom: 2rem;
+  border-bottom: 0.1rem solid rgb(177, 177, 177);
+  position: relative;
+  width: 100%;
+}
+.Shop-icon {
+  width: 1.1rem;
+  position: absolute;
+  right: 0.01rem;
+  top: 0.5rem;
+}
+.Shop-img {
+  width: 6rem;
+}
+@media screen and (min-width: 452px) {
+  .Shop-img {
+    width: 8rem;
+  }
+}
+@media screen and (min-width: 742px) {
+  .Shop-img {
+    width: 10rem;
+  }
+}
+.Shop-h3 {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+.Shop-subcontainer {
+  width: 100%;
+  max-width: 14rem;
+}
+.Shop-textcontainer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0rem;
+}
+.Shop-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+@media screen and (min-width: 1000px) {
+  .Shop-container {
+    padding-top: 1rem;
+  }
+}
+.Shop-btn {
+  padding: 1rem;
+  width: 100%;
+  max-width: 50rem;
+  background-color: #ffcc03;
+  border-style: none;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  color: rgb(32, 32, 32);
+  font-weight: bolder;
+}
+@media screen and (min-width: 1000px) {
+  .Shop-btn {
+    max-width: 30rem;
+  }
 }
 
 .Carrito {
