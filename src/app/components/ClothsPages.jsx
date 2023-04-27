@@ -17,7 +17,7 @@ export const ClothsPages = () => {
     m: false,
     l: false,
     xl: false,
-    xll: true,
+    xxl: true,
   });
   const { state } = useLocation();
   const {
@@ -191,12 +191,12 @@ export const ClothsPages = () => {
               </button>
               <button
                 className={`Clothes-btn--small ${
-                  sizeActive["xll"] ? "Clothes-btn--smallColor" : ""
+                  sizeActive["xxl"] ? "Clothes-btn--smallColor" : ""
                 }`}
                 onClick={handleSize}
-                value={"xll"}
+                value={"xxl"}
               >
-                xll
+                xxl
               </button>
             </ul>
             <button

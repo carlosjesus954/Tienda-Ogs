@@ -534,16 +534,8 @@ export const Provider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
   const [estadoCarrito, setEstadoCarrito] = useState(false);
   const onAñadirCarrito = (props) => {
-    const {
-      id,
-      src1,
-      src3,
-      sizeClothes,
-      title,
-      precio,
-      complementoColor,
-      cantidad,
-    } = props;
+    const { id, src1, src3, sizeClothes, title, precio, complementoColor } =
+      props;
 
     const newObjeto = {
       id: id,
@@ -558,10 +550,11 @@ export const Provider = ({ children }) => {
     console.log(carrito);
     const vestimenta = carrito.findIndex(
       (objeto) =>
-        objeto.nombre === newObjeto.nombre &&
-        objeto.size === newObjeto.size &&
-        objeto.color === newObjeto.color
+        JSON.stringify(objeto.nombre) === JSON.stringify(newObjeto.nombre) &&
+        JSON.stringify(objeto.size) === JSON.stringify(newObjeto.size) &&
+        JSON.stringify(objeto.color) === JSON.stringify(newObjeto.color)
     );
+    console.log(vestimenta);
     if (vestimenta >= 0) {
       // si el objeto ya existe en el carrito, actualizar su cantidad y precio total
       const newCarrito = [...carrito];
