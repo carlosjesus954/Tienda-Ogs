@@ -4,11 +4,16 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 export const CarritoLogic = () => {
-  const { carrito, borrarRopa, PrecioTotal } = useContext(AuthContext);
+  const { carrito, borrarRopa, PrecioTotal, vaciarCarrito } =
+    useContext(AuthContext);
   const [mostrarAlerta, setMostrarAlerta] = useState(false);
-  const enviarPedido = () => {
-    carrito = [];
-    setMostrarAlerta(!mostrarAlerta);
+  const enviarPedido = (event) => {
+    event.preventDefault();
+    setMostrarAlerta(true);
+  };
+  const handleEliminarAlerta = () => {
+    vaciarCarrito();
+    setMostrarAlerta(false);
   };
   return (
     <div className="Shop-globalcontainer">
@@ -48,9 +53,24 @@ export const CarritoLogic = () => {
       </div>
       <div className="Shop-container">
         <PrecioTotal carrito={carrito} />
-        <NavLink to={"/"} className="Shop-btn" onClick={enviarPedido}>
+        <button className="Shop-btn" onClick={enviarPedido}>
           Finalizar Pedido
-        </NavLink>
+        </button>
+
+        {mostrarAlerta && (
+          <div className="Container-alerta">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              className="Icon-alert"
+              viewBox="0 0 16 16"
+              onClick={handleEliminarAlerta}
+            >
+              <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+            </svg>
+            <h4 className="Alerta-compra">Tu pedido ha sido enviado!</h4>
+          </div>
+        )}
       </div>
     </div>
   );

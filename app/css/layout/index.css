@@ -730,7 +730,7 @@
 
 .Shop {
   padding: 1rem;
-  height: 80vh;
+  min-height: 100vh;
 }
 .Shop-h2 {
   margin-bottom: 2rem;
@@ -837,6 +837,35 @@
   .Shop-btn {
     max-width: 30rem;
   }
+}
+.Shop-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.Container-alerta {
+  background-color: rgba(0, 177, 0, 0.815);
+  padding: 2rem;
+  position: absolute;
+  top: 50%;
+}
+@media screen and (min-width: 1000px) {
+  .Container-alerta {
+    top: 20%;
+    left: 42%;
+  }
+}
+
+.Alerta-compra {
+  color: white;
+  font-size: 1.4rem;
+}
+
+.Icon-alert {
+  width: 1.2rem;
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
 }
 
 .Carrito {

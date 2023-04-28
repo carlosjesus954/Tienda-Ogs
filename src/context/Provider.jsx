@@ -559,7 +559,9 @@ export const Provider = ({ children }) => {
       // si el objeto ya existe en el carrito, actualizar su cantidad y precio total
       const newCarrito = [...carrito];
 
-      newCarrito[vestimenta].precio = newCarrito[vestimenta].precio + precio;
+      newCarrito[vestimenta].precio = (
+        parseFloat(newCarrito[vestimenta].precio) + parseFloat(precio)
+      ).toFixed(2);
 
       newCarrito[vestimenta].cantidad = newCarrito[vestimenta].cantidad + 1;
 
@@ -594,7 +596,15 @@ export const Provider = ({ children }) => {
       total += objeto.precioTotal;
     });
 
-    return <h2 className="Carrito-cuentas--precio">Precio Total: {total}€</h2>;
+    return (
+      <h2 className="Carrito-cuentas--precio">
+        Precio Total: {total.toFixed(2)}€
+      </h2>
+    );
+  }
+
+  function vaciarCarrito() {
+    setCarrito([]);
   }
   return (
     <AuthContext.Provider
@@ -614,6 +624,7 @@ export const Provider = ({ children }) => {
         contact,
         contactExtra,
         carrito,
+        vaciarCarrito,
         estadoCarrito,
         onAñadirCarrito,
         actualizarCarrito,
