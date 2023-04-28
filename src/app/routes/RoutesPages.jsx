@@ -1,16 +1,19 @@
 import { Routes, Route } from "react-router-dom";
 import { NavBar } from "../../ui/components/NavBar";
 import { Footer } from "../components/Footer";
-import { ContactPage } from "../pages/ContactPage";
-import { AppHome } from "../pages/AppHome";
-import { ShopPage } from "../pages/ShopPage";
-import { TigerPage } from "../pages/TigerPage";
-import { CreamPage } from "../pages/CreamPage";
-import { MoMoney } from "../pages/MoMoney";
-import { AccesoryPage } from "../pages/AccesoryPage";
 import { ClothsPages } from "../components/ClothsPages";
-import { RegistroPage } from "../pages/RegistroPage";
-import { ParanoiaPage } from "../pages/ParanoiaPage";
+import {
+  ContactPage,
+  AppHome,
+  ShopPage,
+  TigerPage,
+  CreamPage,
+  MoMoney,
+  AccesoryPage,
+  RegistroPage,
+  ParanoiaPage,
+} from "../pages";
+
 export const RoutesPages = () => {
   return (
     <>
@@ -35,7 +38,7 @@ export const RoutesPages = () => {
         <Route path="/cloths/accesorios" element={<AccesoryPage />} />
 
         <Route path="cloths" element={<ClothsPages />} />
-
+        <Route path="registro" element={<RegistroPage />} />
         <Route path="/contact/registro" element={<RegistroPage />} />
         <Route path="/contact/registro/contact" element={<ContactPage />} />
       </Routes>
