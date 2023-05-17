@@ -4,6 +4,9 @@
 .Contact {
   text-align: center;
   padding: 1rem;
+  @include m.desktop {
+    height: 80vh;
+  }
   &-h2 {
     text-align: start;
     margin-bottom: 4rem;

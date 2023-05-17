@@ -9,7 +9,7 @@ export const useClickId = () => {
 
   const onClickHidden = (id, formState) => {
     if (!formState[id]) {
-      setClickId("");
+      setClickId(null);
     }
   };
   return {

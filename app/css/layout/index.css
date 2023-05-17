@@ -641,6 +641,11 @@
   text-align: center;
   padding: 1rem;
 }
+@media screen and (min-width: 1250px) {
+  .Contact {
+    height: 80vh;
+  }
+}
 .Contact-h2 {
   text-align: start;
   margin-bottom: 4rem;
