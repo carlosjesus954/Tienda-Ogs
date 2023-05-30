@@ -41,6 +41,10 @@ export const RoutesPages = () => {
         <Route path="registro" element={<RegistroPage />} />
         <Route path="/contact/registro" element={<RegistroPage />} />
         <Route path="/contact/registro/contact" element={<ContactPage />} />
+        <Route
+          path="/contact/registro/contact/registro"
+          element={<RegistroPage />}
+        />
       </Routes>
       <Footer />
     </>

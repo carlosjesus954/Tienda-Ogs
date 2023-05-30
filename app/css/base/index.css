@@ -353,4 +353,15 @@ body {
   color: white;
 }
 
+.Btn-reutilizable--white {
+  background-color: transparent;
+  color: #ffcc03;
+  border: 2px solid #ffcc03;
+}
+
+.Btn-reutilizable--white:hover {
+  background-color: transparent;
+  color: black;
+}
+
 /*# sourceMappingURL=index.css.map */

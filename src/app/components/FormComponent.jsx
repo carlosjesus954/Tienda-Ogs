@@ -1,94 +1,119 @@
-import { NavLink } from "react-router-dom";
-import BtnComponent from "../components/BtnComponent";
-
 import { useClickId } from "../hooks/useClickId";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useForm } from "../hooks/useForm";
+import { useNavigate } from "react-router-dom";
+
+const initialForm = {
+  CorreoElectronico: "",
+  Contrasena: "",
+  Nombre: "",
+  Apellidos: "",
+};
+
+const validationsForm = (formState) => {
+  let errors = {};
+  if (!formState.CorreoElectronico.trim()) {
+    errors.CorreoElectronico = "El campo 'Correo electronico' esta vacio.";
+  }
+  if (!formState.Contrasena.trim()) {
+    errors.Contrasena = "El campo 'Contraseña' esta vacio.";
+  }
+  if (!formState.Nombre.trim()) {
+    errors.Nombre = "El campo 'Nombre' esta vacio.";
+  }
+  if (!formState.Apellidos.trim()) {
+    errors.Apellidos = "El campo 'Apellidos' esta vacio.";
+  }
+  return errors;
+};
 
 export const FormComponent = (props) => {
   const { contact, contactExtra } = useContext(AuthContext);
   const { onClickShow, onClickHidden, clickId } = useClickId();
-  const { formState, onInputChange } = useForm();
-  const onValidateForm = () => {
-    console.log("de momento no esta validado");
+  const {
+    formState,
+    errors,
+    loading,
+    response,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+  } = useForm(initialForm, validationsForm);
+  const navigate = useNavigate();
+  const handlePage = () => {
+    navigate(`${props.to1}`);
   };
   return (
     <main className="Main Wrapper">
       <section className="Main-contact Contact">
         <h2 className="Contact-h2">{props.title}</h2>
-        <form action="#" className="Contact-form">
-          {contact.map((inp) => {
-            const { type, label, id } = inp;
+        <form onSubmit={handleSubmit} className="Contact-form">
+          {contact.map((input) => {
+            const { type, label, id, name } = input;
             return (
               <div className="Contact-container" key={id}>
-                <label
-                  htmlFor={id}
-                  className={`Contact-label ${
-                    formState[id] || clickId === id
-                      ? "Contact-label--filled"
-                      : ""
-                  }`}
-                >
+                <label htmlFor={label} className="Contact-label">
                   {label}
                 </label>
                 <input
                   type={type}
-                  id={id}
-                  name={id}
-                  value={formState[id] || ""}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  name={name}
+                  value={formState[name]}
+                  required
                   className="Contact-input"
-                  onChange={onInputChange}
-                  onClick={() => onClickShow(id)}
-                  onBlur={() => onClickHidden(id, formState)}
                 />
+                {errors[name] && (
+                  <p className="Contact-error">{errors[name]}</p>
+                )}
               </div>
             );
           })}
           {props.formExtra &&
-            contactExtra.map((inpu) => {
-              const { type, label, id } = inpu;
+            contactExtra.map((input) => {
+              const { type, label, id, name } = input;
 
               return (
                 <div className="Contact-container" key={id}>
-                  <label
-                    htmlFor={id}
-                    className={`Contact-label ${
-                      formState[id] || clickId === id
-                        ? "Contact-label--filled"
-                        : ""
-                    }`}
-                  >
+                  <label htmlFor={label} className="Contact-label">
                     {label}
                   </label>
                   <input
                     type={type}
-                    id={id}
-                    name={id}
-                    value={formState[id] || ""}
+                    name={name}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={formState[name]}
+                    required
                     className="Contact-input"
-                    onChange={onInputChange}
-                    onClick={() => onClickShow(id)}
-                    onBlur={() => onClickHidden(id, formState)}
                   />
+                  {errors[name] && (
+                    <p className="Contact-error">{errors[name]}</p>
+                  )}
                 </div>
               );
             })}
+          <div className="Contact-buttons">
+            <input
+              type="submit"
+              value={props.btnTitle1}
+              className="Btn-reutilizable"
+            />
+            {props.btnRegistro && (
+              <>
+                <div className="Contact-container--rotate"></div>
+                <button
+                  className="Btn-reutilizable Btn-reutilizable--white"
+                  onClick={handlePage}
+                >
+                  {props.btnTitle2}
+                </button>
+              </>
+            )}
+          </div>
         </form>
-        <NavLink to={props.to1}>
-          <BtnComponent value={props.btnTitle1} funcion={null} />
-        </NavLink>
-        {props.btnRegistro && (
-          <>
-            <div className="Contact-container--rotate"></div>
-            <NavLink to={props.to2}>
-              <BtnComponent
-                value={props.btnTitle2}
-                funcion={() => onValidateForm()}
-              />
-            </NavLink>
-          </>
-        )}
       </section>
     </main>
   );

@@ -1,24 +1,31 @@
 import { useState } from "react";
 
-export const useForm = (initialForm = {}) => {
+export const useForm = (initialForm, validateForm) => {
   const [formState, setFormState] = useState(initialForm);
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [response, setResponse] = useState(null);
 
-  const onInputChange = ({ target }) => {
-    const { name, value } = target;
-    console.log({ name, value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormState({
       ...formState,
       [name]: value,
     });
   };
-
-  const onResetForm = () => {
-    setFormState(initialForm);
+  const handleBlur = (e) => {
+    handleChange(e);
+    setErrors(validateForm(formState));
   };
+  const handleSubmit = (e) => {};
+
   return {
-    ...formState,
     formState,
-    onInputChange,
-    onResetForm,
+    errors,
+    loading,
+    response,
+    handleChange,
+    handleBlur,
+    handleSubmit,
   };
 };

@@ -509,11 +509,13 @@ const contact = [
   {
     id: 1,
     label: "Correo electronico",
+    name: "CorreoElectronico",
     type: "email",
   },
   {
     id: 2,
     label: "Contraseña",
+    name: "Contrasena",
     type: "password",
   },
 ];
@@ -521,11 +523,13 @@ const contactExtra = [
   {
     id: 3,
     label: "Nombre",
+    name: "Nombre",
     type: "text",
   },
   {
     id: 4,
     label: "Apellidos",
+    name: "Apellidos",
     type: "text",
   },
 ];
@@ -533,7 +537,7 @@ const contactExtra = [
 export const Provider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
   const [estadoCarrito, setEstadoCarrito] = useState(false);
-  const onAñadirCarrito = (props) => {
+  const onAddCart = (props) => {
     const { id, src1, src3, sizeClothes, title, precio, complementoColor } =
       props;
 
@@ -626,7 +630,7 @@ export const Provider = ({ children }) => {
         carrito,
         vaciarCarrito,
         estadoCarrito,
-        onAñadirCarrito,
+        onAddCart,
         actualizarCarrito,
         borrarRopa,
         handleCerrarCarrito,
