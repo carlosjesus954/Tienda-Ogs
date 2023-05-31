@@ -11,25 +11,36 @@ const initialForm = {
   Apellidos: "",
 };
 
-const validationsForm = (formState) => {
-  let errors = {};
-  if (!formState.CorreoElectronico.trim()) {
-    errors.CorreoElectronico = "El campo 'Correo electronico' esta vacio.";
-  }
-  if (!formState.Contrasena.trim()) {
-    errors.Contrasena = "El campo 'Contraseña' esta vacio.";
-  }
-  if (!formState.Nombre.trim()) {
-    errors.Nombre = "El campo 'Nombre' esta vacio.";
-  }
-  if (!formState.Apellidos.trim()) {
-    errors.Apellidos = "El campo 'Apellidos' esta vacio.";
-  }
-  return errors;
-};
-
 export const FormComponent = (props) => {
   const { contact, contactExtra } = useContext(AuthContext);
+  const validationsForm = (formState) => {
+    let errors = {};
+    const regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
+    const regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
+
+    if (!formState.CorreoElectronico.trim()) {
+      errors.CorreoElectronico = "El campo 'Correo electronico' esta vacio.";
+    } else if (!regexEmail.test(formState.CorreoElectronico.trim())) {
+      errors.CorreoElectronico = "El campo 'Correo electronico' es invalido.";
+    }
+    if (!formState.Contrasena.trim()) {
+      errors.Contrasena = "El campo 'Contraseña' esta vacio.";
+    }
+    if (props.formExtra) {
+      if (!formState.Nombre.trim()) {
+        errors.Nombre = "El campo 'Nombre' esta vacio.";
+      } else if (!regexName.test(formState.Nombre.trim())) {
+        errors.Nombre = "El campo 'Nombre' es invalido.";
+      }
+      if (!formState.Apellidos.trim()) {
+        errors.Apellidos = "El campo 'Apellidos' esta vacio.";
+      } else if (!regexName.test(formState.Apellidos.trim())) {
+        errors.Apellidos = "El campo 'Apellidos' es invalido.";
+      }
+    }
+
+    return errors;
+  };
   const { onClickShow, onClickHidden, clickId } = useClickId();
   const {
     formState,
@@ -44,6 +55,7 @@ export const FormComponent = (props) => {
   const handlePage = () => {
     navigate(`${props.to1}`);
   };
+
   return (
     <main className="Main Wrapper">
       <section className="Main-contact Contact">
