@@ -41,7 +41,7 @@ export const FormComponent = (props) => {
 
     return errors;
   };
-  const { onClickShow, onClickHidden, clickId } = useClickId();
+
   const {
     formState,
     errors,
@@ -51,6 +51,7 @@ export const FormComponent = (props) => {
     handleBlur,
     handleSubmit,
   } = useForm(initialForm, validationsForm);
+  const { onClickShow, onClickHidden, clickId } = useClickId();
   const navigate = useNavigate();
   const handlePage = () => {
     navigate(`${props.to1}`);
@@ -65,13 +66,21 @@ export const FormComponent = (props) => {
             const { type, label, id, name } = input;
             return (
               <div className="Contact-container" key={id}>
-                <label htmlFor={label} className="Contact-label">
+                <label
+                  htmlFor={label}
+                  className={`Contact-label ${
+                    clickId[id] === true ? "Contact-label--filled" : ""
+                  }`}
+                >
                   {label}
                 </label>
                 <input
                   type={type}
                   onChange={handleChange}
-                  onBlur={handleBlur}
+                  onBlur={
+                    (handleBlur, () => onClickHidden(name, formState, id))
+                  }
+                  onClick={() => onClickShow(id)}
                   name={name}
                   value={formState[name]}
                   required
@@ -89,14 +98,22 @@ export const FormComponent = (props) => {
 
               return (
                 <div className="Contact-container" key={id}>
-                  <label htmlFor={label} className="Contact-label">
+                  <label
+                    htmlFor={label}
+                    className={`Contact-label ${
+                      clickId[id] === true ? "Contact-label--filled" : ""
+                    }`}
+                  >
                     {label}
                   </label>
                   <input
                     type={type}
                     name={name}
                     onChange={handleChange}
-                    onBlur={handleBlur}
+                    onBlur={
+                      (handleBlur, () => onClickHidden(name, formState, id))
+                    }
+                    onClick={() => onClickShow(id)}
                     value={formState[name]}
                     required
                     className="Contact-input"
