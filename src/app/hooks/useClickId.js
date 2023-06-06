@@ -16,7 +16,6 @@ export const useClickId = () => {
   };
 
   const onClickHidden = (name, formState, id) => {
-    console.log(formState);
     if (formState[name].length === 0) {
       setClickId(() => ({
         ...clickId,

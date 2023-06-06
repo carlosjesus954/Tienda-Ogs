@@ -48,12 +48,12 @@ export const FormComponent = (props) => {
     loading,
     response,
     handleChange,
-    handleBlur,
+    // handleBlur,
     handleSubmit,
   } = useForm(initialForm, validationsForm);
   const { onClickShow, onClickHidden, clickId } = useClickId();
   const navigate = useNavigate();
-  const handlePage = () => {
+  const handlePageRegister = () => {
     navigate(`${props.to1}`);
   };
 
@@ -61,7 +61,7 @@ export const FormComponent = (props) => {
     <main className="Main Wrapper">
       <section className="Main-contact Contact">
         <h2 className="Contact-h2">{props.title}</h2>
-        <form onSubmit={handleSubmit} className="Contact-form">
+        <form onSubmit={handleSubmit} className="Contact-form" noValidate>
           {contact.map((input) => {
             const { type, label, id, name } = input;
             return (
@@ -77,13 +77,10 @@ export const FormComponent = (props) => {
                 <input
                   type={type}
                   onChange={handleChange}
-                  onBlur={
-                    (handleBlur, () => onClickHidden(name, formState, id))
-                  }
                   onClick={() => onClickShow(id)}
+                  onBlur={() => onClickHidden(name, formState, id)}
                   name={name}
                   value={formState[name]}
-                  required
                   className="Contact-input"
                 />
                 {errors[name] && (
@@ -110,12 +107,9 @@ export const FormComponent = (props) => {
                     type={type}
                     name={name}
                     onChange={handleChange}
-                    onBlur={
-                      (handleBlur, () => onClickHidden(name, formState, id))
-                    }
                     onClick={() => onClickShow(id)}
+                    onBlur={() => onClickHidden(name, formState, id)}
                     value={formState[name]}
-                    required
                     className="Contact-input"
                   />
                   {errors[name] && (
@@ -129,13 +123,14 @@ export const FormComponent = (props) => {
               type="submit"
               value={props.btnTitle1}
               className="Btn-reutilizable"
+              onSubmit={() => handleSubmit()}
             />
             {props.btnRegistro && (
               <>
                 <div className="Contact-container--rotate"></div>
                 <button
                   className="Btn-reutilizable Btn-reutilizable--white"
-                  onClick={handlePage}
+                  onClick={handlePageRegister}
                 >
                   {props.btnTitle2}
                 </button>

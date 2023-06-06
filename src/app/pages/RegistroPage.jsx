@@ -6,7 +6,6 @@ export const RegistroPage = () => {
       title={"Crea tu cuenta"}
       btnRegistro={false}
       btnTitle1={"Registrate"}
-      to1={"contact"}
       formExtra={true}
     />
   );
