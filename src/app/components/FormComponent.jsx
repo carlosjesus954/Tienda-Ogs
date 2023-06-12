@@ -1,4 +1,3 @@
-import { useClickId } from "../hooks/useClickId";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useForm } from "../hooks/useForm";
@@ -10,7 +9,6 @@ const initialForm = {
   Nombre: "",
   Apellidos: "",
 };
-
 export const FormComponent = (props) => {
   const { contact, contactExtra } = useContext(AuthContext);
   const validationsForm = (formState) => {
@@ -41,17 +39,18 @@ export const FormComponent = (props) => {
 
     return errors;
   };
-
   const {
     formState,
     errors,
     loading,
     response,
     handleChange,
-    // handleBlur,
     handleSubmit,
+    onClickShow,
+    onClickHidden,
+    clickId,
   } = useForm(initialForm, validationsForm);
-  const { onClickShow, onClickHidden, clickId } = useClickId();
+
   const navigate = useNavigate();
   const handlePageRegister = () => {
     navigate(`${props.to1}`);
@@ -78,7 +77,7 @@ export const FormComponent = (props) => {
                   type={type}
                   onChange={handleChange}
                   onClick={() => onClickShow(id)}
-                  onBlur={() => onClickHidden(name, formState, id)}
+                  onBlur={(e) => onClickHidden(name, formState, id, e)}
                   name={name}
                   value={formState[name]}
                   className="Contact-input"
