@@ -9,7 +9,7 @@ export const ClothsPages = () => {
     color1: true,
     color2: false,
   });
-  const { onAñadirCarrito, carrito, estadoCarrito } = useContext(AuthContext);
+  const { onAddCart, carrito, estadoCarrito } = useContext(AuthContext);
   // console.log(carrito);
   const [sizeClothes, setSizeClothes] = useState("xxl");
   const [sizeActive, setSizeActive] = useState({
@@ -202,7 +202,7 @@ export const ClothsPages = () => {
             <button
               className="Clothes-btn"
               onClick={() =>
-                onAñadirCarrito({
+                onAddCart({
                   id,
                   src1,
                   src3,

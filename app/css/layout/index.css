@@ -268,6 +268,7 @@
 }
 .Main-img--grande {
   width: 70rem;
+  margin-bottom: 1rem;
 }
 .Main-h2--grande {
   margin-bottom: 1rem;
@@ -640,6 +641,11 @@
   text-align: center;
   padding: 1rem;
 }
+@media screen and (min-width: 1250px) {
+  .Contact {
+    height: 80vh;
+  }
+}
 .Contact-h2 {
   text-align: start;
   margin-bottom: 4rem;
@@ -695,15 +701,22 @@
   outline: none;
   cursor: pointer;
 }
+.Contact-buttons {
+  width: 100%;
+}
 .Contact-container--rotate {
-  width: 1rem;
-  height: 1rem;
-  border: solid 0.1875rem black;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: solid 0.13rem black;
   margin-left: auto;
   margin-right: auto;
   transform: rotate(-137deg);
   margin-bottom: 2rem;
   margin-top: 2rem;
+}
+.Contact-error {
+  color: red;
+  font-weight: bolder;
 }
 
 .ShopNone {

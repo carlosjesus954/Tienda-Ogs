@@ -39,3 +39,12 @@ body {
   background-color: black;
   color: white;
 }
+.Btn-reutilizable--white {
+  background-color: transparent;
+  color: v.$colorPrincipal;
+  border: 2px solid v.$colorPrincipal;
+}
+.Btn-reutilizable--white:hover {
+  background-color: transparent;
+  color: black;
+}

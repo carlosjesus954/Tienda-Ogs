@@ -5,10 +5,9 @@ export const ContactPage = () => {
     <FormComponent
       title={"Login"}
       btnRegistro={true}
-      btnTitle1={"Iniciar sesión"}
+      btnTitle1={"Login"}
       btnTitle2={"Registrate"}
-      to1={"conectado"}
-      to2={"registro"}
+      to1={"registro"}
       formExtra={false}
     />
   );
